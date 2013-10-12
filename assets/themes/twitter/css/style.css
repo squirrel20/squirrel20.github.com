@@ -80,6 +80,7 @@ body {
 }
 .post-list li{
     padding:10px 0;
+    border-bottom:1px solid #ddd;
 }
 .entry-date{
     float:right;

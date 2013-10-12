@@ -1,6 +1,6 @@
 ---
 layout: default
-title: HOME
+title: Squirrel
 tagline: view article
 ---
 {% include JB/setup %}

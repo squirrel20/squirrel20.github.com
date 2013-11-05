@@ -1,0 +1,36 @@
+---
+layout: page
+title: "2013 11 05 Find And Grep"
+description: "Linux Command: find, grep"
+---
+{% include JB/setup %}
+## find
+***
+用于搜索文件的命令
+
+find命令的完整语法格式：
+	find [path] [options] [tests] [actions]
+path: 要查找的路径，可以是觉得路径或相对路径
+options:
+	<table>
+		<tr>
+			<th>选项</th>
+			<th>含义</th>
+		</tr>
+		<tr>
+			<td>-depth</td>
+			<td>在查看目录本身之前先搜索目录的内容</td>
+		</tr>
+		<tr>
+			<td>-follow</td>
+			<td>跟随符号链接</td>
+		</tr>
+		<tr>
+			<td>-maxdepths N</td>
+			<td>最多搜索N层目录</td>
+		</tr>
+		<tr>
+			<td>-mount / -xdev</td>
+			<td>不搜索其他文件系统中的目录</td>
+		</tr>
+	</table>

@@ -7,7 +7,7 @@ pygments: true
 
 markdown: redcarpet
 
-img_url: http://myspes.info/assets/images
+img_url: http://myspescdn.sinaapp.com/assets/images
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #

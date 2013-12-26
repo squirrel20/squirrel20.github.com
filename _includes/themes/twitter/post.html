@@ -26,6 +26,7 @@
   </div>
   
   <div class="span4">
+    <div class="index"></div>
     <h4>Published</h4>
     <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
 
@@ -38,3 +39,5 @@
   {% endunless %}  
   </div>
 </div>
+<script type="text/javascript" src="{{ site.js_path }}/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="{{ site.js_path }}/index.js"></script>

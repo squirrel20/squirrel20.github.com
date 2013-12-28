@@ -4,7 +4,9 @@
 
 <div class="row">
   <div class="span10">
-    {{ content }}
+    <div class="post-content">
+      {{ content }}
+    </div>
     <hr>
     <div class="pagination">
       <ul>
@@ -26,7 +28,10 @@
   </div>
   
   <div class="span4">
-    <div class="index"></div>
+    <div>
+        <h4>索引</h4>
+        <ul class="index"></ul>
+    </div>
     <h4>Published</h4>
     <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
 

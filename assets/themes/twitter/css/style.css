@@ -89,3 +89,27 @@ body {
     overflow:hide;
     font-size:18px;
 }
+
+.index{
+    list-style:none;
+    margin-left:0;
+}
+
+.index li{
+
+}
+
+.index-h1{
+}
+
+.index-h2{
+    padding-left:1em;
+}
+
+.index-h3{
+    padding-left:2em;
+}
+
+.index-h4{
+    padding-left:3em;
+}

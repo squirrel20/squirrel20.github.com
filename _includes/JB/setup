@@ -2,6 +2,7 @@
   <!--
   - Dynamically set liquid variables for working with URLs/paths
   -->
+  {% assign CDN_PATH = site.cdn_url %}
   {% if site.JB.setup.provider == "custom" %}
     {% include custom/setup %}
   {% else %}
@@ -19,4 +20,5 @@
       {% capture ASSET_PATH %}{{ BASE_PATH }}/assets/themes/{{ page.theme.name }}{% endcapture %}
     {% endif %}  
   {% endif %}
+
 {% endcapture %}{% assign jbcache = nil %}

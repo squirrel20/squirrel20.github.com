@@ -10,6 +10,7 @@ markdown: redcarpet
 #img_url: http://myspescdn.sinaapp.com/assets/images
 img_url: assets/images/
 js_path: assets/js/
+cdn_url: http://myspes.qiniudn.com/
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #

@@ -51,16 +51,23 @@
 }
 .topbar{
 	height:initial;
-	background-image:{{ HOME_PATH }}{{ site.img_url  }}bg-1.jpg;
 	position:initial;
+}
+.fill{
+	background-image:url({{ HOME_PATH }}{{ site.img_url  }}bg-1.jpg);
+	background-repeat:repeat-y;
+	background-position:center center;
+}
+.topbar a{
+	color:#eee;
 }
 	</style>
   </head>
 
   <body style="padding-top:0">
 
-    <div class="topbar" style="height:initial">
-      <div class="fill">
+    <div class="topbar">
+	    <div class="fill" style="background-image:url({{ HOME_PATH }}{{ site.img_url }}bg-1.jpg);background-repeat:repeat-y;background-position:center center;">
         <div class="container">
 	  <div class="squirrel-bg" style="text-align:center">
 		  <a style="color:#fff" class="squirrel" href="{{ HOME_PATH }}">{{ site.title }}</a>

@@ -3,6 +3,7 @@
   - Dynamically set liquid variables for working with URLs/paths
   -->
   {% assign CDN_PATH = site.cdn_url %}
+  {% capture ASSET_CDN_PATH %}{{ site.cdn_url }}assets/themes/{{ page.theme.name }}/{% endcapture %}
   {% if site.JB.setup.provider == "custom" %}
     {% include custom/setup %}
   {% else %}

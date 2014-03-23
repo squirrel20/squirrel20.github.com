@@ -10,12 +10,10 @@ tagline: view article
     {% for post in site.posts limit:10 %}
         <li>
             <article>
-                <a href="{{ site.url }}{{ post.url }}">
-                    <span class="entry-title"> {{ post.title }} </span>
-                    <span class="entry-date">
-                        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-                    </span>
-                </a>
+                <span class="entry-title"><a href="{{ site.url  }}{{ post.url  }}"> {{ post.title }} </a></span>
+                <span class="entry-date">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+                </span>
             </article>
         </li>
     {% endfor %}

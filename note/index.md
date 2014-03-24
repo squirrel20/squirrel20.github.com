@@ -45,4 +45,5 @@ title: note
 38. oracle查看其他用户的表结构: desc username.tablename; [Oracle][表结构][ http://www.itpub.net/forum.php?mod=redirect&goto=findpost&ptid=977964&pid=10210673]
 39. 在css中指定table列的宽度，只需指定th的宽度和table的宽度即可（th的宽度和应该等于table的宽度），不用指定td的宽度。若只指定了th的宽度而未指定table的宽度，此时指定的th的宽度只能理解为min-width。[table][th][td][css][宽度][列]
 40. C语言中用#define伪命令定义的对象称为常数，用const限定词定义并初始化的对象称为常量（相对于变量而言）。常数的值在编译时确定，常量的值则在运行时初始化后确定（不过此后只能作为右值使用）。[C][#define][const][Unix网络编程第3版（卷1）][6][译者注]
+41. 服务不能自己运行，需要通过调用Context.startService()或Context.bindService()方法启动服务。这两个方法都可以启动Service，但是它们的使用场合有所不同。使用startService()方法启用服务，调用者与服务之间没有关连，即使调用者退出了，服务仍然运行。使用bindService()方法启用服务，调用者与服务绑定在了一起，调用者一旦退出，服务也就终止。[Android][Service]
 

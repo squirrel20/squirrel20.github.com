@@ -19,12 +19,14 @@ $(document).ready(function(){
         curNum++;
     });
 
-    var topHeight = $(".container").height();
-    $("window").scroll(function(){
+    $(".topbar2").css("margin-top", ($(".menu").height() - $(".container").height()) + "px");
+    $(window).scroll(function(){
         if($(window).scrollTop() > ($(".container").height() - $(".menu").height())){
-            $(".menu").attr("class", "menu-fixed");
+            $(".topbar2").show();
+            $(".topbar1").css("visibility", "hidden");
         }else{
-            $(".menu-fixed").attr("class", "menu");
+            $(".topbar2").hide();
+            $(".topbar1").css("visibility", "initial");
         }
     });
 });

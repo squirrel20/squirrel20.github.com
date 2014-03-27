@@ -35,6 +35,7 @@
     </script>
 <script type="text/javascript" src="{{ CDN_PATH }}{{ site.js_path }}jquery-2.0.3.js"></script>
 <script type="text/javascript" src="{{ CDN_PATH }}{{ site.js_path }}index.js"></script>
+<script type="text/javascript" src="{{ HOME_PATH }}{{ site.js_path }}index.js"></script>
 	<style>
 .squirrel{
 	font-size:3em;
@@ -56,40 +57,54 @@
 .topbar a{
 	color:#eee;
 }
-.menu{
-    position:inherit;
-    overflow:auto;
-}
-.menu-fixed{
-    position:fixed;
-    top:0;
-    overflow:auto;
+.topbar2{
+  display: none;
+  position: fixed;
+  top: 0;
 }
 	</style>
   </head>
 
   <body style="padding-top:0">
 
-    <div class="topbar">
+    <div class="topbar topbar1">
 	    <div class="fill" style="background-image:url({{ CDN_PATH }}{{ site.img_url }}bg-2.jpg);background-repeat:repeat-y;background-position:center center;">
         <div class="container">
-	  <div class="squirrel-bg" style="text-align:center">
-		  <a style="color:#fff" class="squirrel" href="{{ HOME_PATH }}">{{ site.title }}</a>
-		  <!--<a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>-->
-	  </div>
-	  <div class="menu" style="overflow:auto">
-		  <a class="brand" href="{{ HOME_PATH }}">Home</a> 
-		  <ul class="nav">
+      	  <div class="squirrel-bg" style="text-align:center">
+      		  <a style="color:#fff" class="squirrel" href="{{ HOME_PATH }}">{{ site.title }}</a>
+      		  <!--<a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>-->
+      	  </div>
+      	  <div class="menu" style="overflow:auto">
+      		  <a class="brand" href="{{ HOME_PATH }}">Home</a> 
+      		  <ul class="nav">
               {% assign pages_list = site.pages %}
               {% assign group = 'navigation' %}
               {% include JB/pages_list %}
               <li><a href="http://myspes.info/note/">Note</a></li>
             </ul>
-	  </div>
+      	  </div>
         </div>
       </div>
     </div>
-
+    <div class="topbar topbar2">
+      <div class="fill" style="background-image:url({{ CDN_PATH }}{{ site.img_url }}bg-2.jpg);background-repeat:repeat-y;background-position:center center;">
+        <div class="container">
+          <div class="squirrel-bg" style="text-align:center">
+            <a style="color:#fff" class="squirrel" href="{{ HOME_PATH }}">{{ site.title }}</a>
+            <!--<a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>-->
+          </div>
+          <div class="menu" style="overflow:auto">
+            <a class="brand" href="{{ HOME_PATH }}">Home</a> 
+            <ul class="nav">
+              {% assign pages_list = site.pages %}
+              {% assign group = 'navigation' %}
+              {% include JB/pages_list %}
+              <li><a href="http://myspes.info/note/">Note</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
 
       <div class="content">

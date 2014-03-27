@@ -18,4 +18,13 @@ $(document).ready(function(){
         $(".index").append("<li><a href='#jump" + curNum + "' class='index-" + cname + "'>" + $(this).text() + "</a></li>");
         curNum++;
     });
+
+    var topHeight = $(".container").height();
+    $("window").scroll(function(){
+        if($(window).scrollTop() > ($(".container").height() - $(".menu").height())){
+            $(".menu").attr("class", "menu-fixed");
+        }else{
+            $(".menu-fixed").attr("class", "menu");
+        }
+    });
 });

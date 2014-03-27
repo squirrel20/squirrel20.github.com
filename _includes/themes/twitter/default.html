@@ -56,6 +56,15 @@
 .topbar a{
 	color:#eee;
 }
+.menu{
+    position:inherit;
+    overflow:auto;
+}
+.menu-fixed{
+    position:fixed;
+    top:0;
+    overflow:auto;
+}
 	</style>
   </head>
 
@@ -68,7 +77,7 @@
 		  <a style="color:#fff" class="squirrel" href="{{ HOME_PATH }}">{{ site.title }}</a>
 		  <!--<a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>-->
 	  </div>
-	  <div>
+	  <div class="menu" style="overflow:auto">
 		  <a class="brand" href="{{ HOME_PATH }}">Home</a> 
 		  <ul class="nav">
               {% assign pages_list = site.pages %}

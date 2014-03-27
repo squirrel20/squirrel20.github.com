@@ -6,10 +6,19 @@ title: Note
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$(".content li").css("color", "#2A2A2A");
-	$(".content li").css("padding", "5px 0");
 });
 </script>
+<style>
+.row li{
+	color:rgb(42,42,42);
+	padding: 10px;
+	list-style: none;
+	border: 1px solid #cdcef5;
+	margin: 20px 0;
+	background-color: #efeef3;
+	border-radius: 5px;
+}
+</style>
 
 1. 由UNIX内核提供的基本时间服务是计算自国际标准时间公元1970年1月1日00:00:00以来经过的秒数。[Unix环境高级编程][143][Unix][Linux][C][编程]
 2. 在Linux中，账户信息保存在/etc/passwd文件中，格式为：用户名:密码:用户ID:用户所在组ID:用户的个人信息:主目录:shell。[Unix][Linux][系统数据文件]

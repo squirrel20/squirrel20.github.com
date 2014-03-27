@@ -5,7 +5,7 @@ tagline: view article
 ---
 {% include JB/setup %}
 
-<h1 style="text-align:center">Latest Posts</h1>
+<!--<h1 style="text-align:center">Latest Posts</h1>-->
 <ul class="post-list">
     {% for post in site.posts limit:10 %}
         <li>

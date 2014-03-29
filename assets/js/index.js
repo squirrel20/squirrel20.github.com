@@ -18,4 +18,15 @@ $(document).ready(function(){
         $(".index").append("<li><a href='#jump" + curNum + "' class='index-" + cname + "'>" + $(this).text() + "</a></li>");
         curNum++;
     });
+
+    $(".topbar2").css("margin-top", ($(".menu").height() - $(".container").height()) + "px");
+    $(window).scroll(function(){
+        if($(window).scrollTop() > ($(".container").height() - $(".menu").height())){
+            $(".topbar2").show();
+            $(".topbar1").css("visibility", "hidden");
+        }else{
+            $(".topbar2").hide();
+            $(".topbar1").css("visibility", "initial");
+        }
+    });
 });

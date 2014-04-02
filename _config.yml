@@ -11,6 +11,7 @@ markdown: redcarpet
 img_url: assets/images/
 js_path: assets/js/
 cdn_url: http://myspes.qiniudn.com/
+duoshuo_url: http://myspes.info
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #

@@ -23,7 +23,7 @@ __使用SensorEvent API定义坐标系统__。
 
 X轴沿屏幕水平向右，Y轴沿屏幕竖直向上，Z轴垂直于屏幕。在系统中，在屏幕后面的Z轴坐标值为负值。
 
-![坐标轴]({{ site.img_url }}/2013122601.png)
+![坐标轴]({{ CDN_PATH }}{{ site.img_url }}/2013122601.png)
 
 _注：_这套坐标系统与Android 2D API中的以屏幕右上角为原点的坐标系统不同。
 
@@ -202,7 +202,7 @@ __Sensor.TYPE_ROTATION_VECTOR:(旋转矢量)__
 * Y 轴相当与设备当前位置沿正北方向的切线
 * Z 轴正对着天空，垂直于地面
 
-![旋转矢量坐标系统]({{ site.img_url }}/2013122602.png)
+![旋转矢量坐标系统]({{ CDN_PATH }}{{ site.img_url }}/2013122602.png)
 
 * values[0]: x*sin(θ/2)
 * values[1]: y*sin(θ/2)

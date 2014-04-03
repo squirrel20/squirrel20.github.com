@@ -15,7 +15,7 @@ tags: [linux]
 
 /etc/passwd文件中的信息如下图所示：
 
-![/etc/passwd]({{ site.img_url }}/2013120901.png)
+![/etc/passwd]({{ CDN_PATH }}{{ site.img_url }}/2013120901.png)
 
 每一行包含若干字段，字段间用冒号分隔，格式为：
 
@@ -71,7 +71,7 @@ name
 
 /etc/group文件中的信息如下图所示：
 
-![/etc/group]({{ site.img_url }}/2013120902.png)
+![/etc/group]({{ CDN_PATH }}{{ site.img_url }}/2013120902.png)
 
 每一行包含若干字段，字段间用冒号分隔，格式为：
 

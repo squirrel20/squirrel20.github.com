@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SensorEvent"
+title: "Android Class : SensorEvent"
 description: "android SensorEvent.values info"
 category: "android"
 tags: [android]

@@ -5,6 +5,7 @@ tagline: view article
 ---
 {% include JB/setup %}
 
+<h1 style="text-align:center">不忘初衷</h1>
 <!--<h1 style="text-align:center">Latest Posts</h1>-->
 <div>
 <ul class="post-list">

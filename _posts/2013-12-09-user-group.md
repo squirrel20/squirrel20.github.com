@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "用户和组"
+title: "Linux用户和组"
 description: ""
 category: "linux"
 tags: [linux]

@@ -6,17 +6,25 @@ title: Note
 
 <script type="text/javascript">
 $(document).ready(function(){
+  $(".span14").css("margin", "0");
+  $(".span14").css("width", "100%");
 });
 </script>
 <style>
+
 .row li{
-	color:rgb(42,42,42);
-	padding: 10px;
-	list-style: none;
-	border: 1px solid #cdcef5;
-	margin: 20px 0;
-	background-color: #efeef3;
-	border-radius: 5px;
+	width: 100%;
+  list-style: none;
+  padding: 20px 10px;
+  border-bottom: 1px solid #ccc;
+}
+.span14{
+  width: 100%;
+  margin: 0;
+}
+.span14 ol{
+  margin: 0;
+  width: 100%;
 }
 </style>
 

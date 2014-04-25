@@ -70,13 +70,12 @@
 		<div class="fill"> <!--style="background-image:url({{ CDN_PATH }}{{ site.img_url }}bg-2.jpg);background-repeat:repeat-y;background-position:center center;"-->
         <div class="container">
       	  <div class="menu" style="overflow:auto">
-			  <!--<a class="brand" href="{{ HOME_PATH }}">Home</a> -->
       		  <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
       		  <ul class="nav">
+              <li><a href="{{ HOME_PATH }}note/">杂记</a></li>
               {% assign pages_list = site.pages %}
               {% assign group = 'navigation' %}
               {% include JB/pages_list %}
-			  <li><a href="{{ HOME_PATH }}note/">Note</a></li>
             </ul>
       	  </div>
         </div>
@@ -89,7 +88,7 @@
       </div>
 
       <footer>
-        <p>email: {{ site.author.email }} &nbsp;&nbsp; | &nbsp;&nbsp; github: {{ site.author.github }}<p>
+        <p>email: {{ site.author.email }} &nbsp;&nbsp; | &nbsp;&nbsp; <a href="https://github.com/squirrel20" target="_blank">Github</a> &nbsp;&nbsp;| &nbsp;&nbsp; <a href="http://weibo.com/myspes" target="_blank">微博</a><p>
         <p>&copy; {{ site.author.name }} 2014 
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>

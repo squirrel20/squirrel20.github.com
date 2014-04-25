@@ -67,6 +67,8 @@ name
 </tbody>
 </table>
 
+<!--excerpt-->
+
 #### 0.2 /etc/group
 
 /etc/group文件中的信息如下图所示：

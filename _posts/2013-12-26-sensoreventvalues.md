@@ -17,6 +17,7 @@ tags: [android]
 
 这个类表示一个传感器事件，并且会携带一些信息，例如：传感器类型、时间戳、精度和传感器数据等。
 
+
 __使用SensorEvent API定义坐标系统__。
 
 坐标系统时根据手机屏幕默认方向定义的。当设备屏幕方向改变，坐标轴也不会更改。
@@ -54,6 +55,8 @@ _注：_这套坐标系统与Android 2D API中的以屏幕右上角为原点的�
 </tr>
 </tbody>
 </table>
+
+<!--excerpt-->
 
 ### public final float[] values 概述
 

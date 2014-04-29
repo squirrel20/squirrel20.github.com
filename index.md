@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Squirrel
+title: 松老师
 tagline: view article
 ---
 {% include JB/setup %}

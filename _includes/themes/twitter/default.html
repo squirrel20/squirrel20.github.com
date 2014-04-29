@@ -5,7 +5,7 @@
     <title>{{ page.title }}</title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
-
+    <meta property="wb:webmaster" content="67c7a0b9087cbfbe" />
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,6 +23,8 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
   -->
+
+  
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -67,7 +69,7 @@
   <body style="padding-top:0">
 
     <div class="topbar">
-		<div class="fill"> <!--style="background-image:url({{ CDN_PATH }}{{ site.img_url }}bg-2.jpg);background-repeat:repeat-y;background-position:center center;"-->
+		  <div class="fill"> 
         <div class="container">
       	  <div class="menu" style="overflow:auto">
       		  <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
@@ -86,7 +88,16 @@
       <div class="content">
         {{ content }}
       </div>
-
+      <div class="aboutme">
+        <div>
+          <div class="douban">
+            <script type="text/javascript" src="http://www.douban.com/service/badge/squirrel20/?selection=latest&amp;picsize=medium&amp;show=collection&amp;n=8&amp;cat=drama%7Cmovie%7Cbook%7Cmusic&amp;columns=2"></script>
+          </div>
+          <div class="weibo">
+            <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1741079110&verifier=fe1976e4&dpc=1"></iframe>
+          </div>
+        </div>
+      </div>
       <footer>
         <p>email: {{ site.author.email }} &nbsp;&nbsp; | &nbsp;&nbsp; <a href="https://github.com/squirrel20" target="_blank">Github</a> &nbsp;&nbsp;| &nbsp;&nbsp; <a href="http://weibo.com/myspes" target="_blank">微博</a><p>
         <p>&copy; {{ site.author.name }} 2014 

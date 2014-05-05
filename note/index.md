@@ -1,6 +1,8 @@
 ---
 layout: page
-title: Note
+title: 杂记
+header : Note
+group: navigation
 ---
 {% include JB/setup %}
 

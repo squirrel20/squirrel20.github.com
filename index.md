@@ -18,7 +18,7 @@ tagline: view article
           box-shadow: 0 0 0;
 }
 </style>
-<!--<h1 style="text-align:center">Latest Posts</h1>-->
+
 <div>
 {% for post in site.posts limit 10 %}
 <div class="home-excerpt">

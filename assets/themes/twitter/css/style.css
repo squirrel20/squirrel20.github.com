@@ -146,3 +146,9 @@ img{
   background-image: none;
   background-color: #2E4C83;
 }
+
+.tools{
+  width: 45%;
+  margin: 20px;
+  float: left;
+}

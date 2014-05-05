@@ -74,7 +74,6 @@
       	  <div class="menu" style="overflow:auto">
       		  <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
       		  <ul class="nav">
-              <li><a href="{{ HOME_PATH }}note/">杂记</a></li>
               {% assign pages_list = site.pages %}
               {% assign group = 'navigation' %}
               {% include JB/pages_list %}
@@ -88,16 +87,7 @@
       <div class="content">
         {{ content }}
       </div>
-      <div class="aboutme" style="display:none">
-        <div>
-          <div class="douban">
-            <script type="text/javascript" src="http://www.douban.com/service/badge/squirrel20/?selection=latest&amp;picsize=medium&amp;show=collection&amp;n=8&amp;cat=drama%7Cmovie%7Cbook%7Cmusic&amp;columns=2"></script>
-          </div>
-          <div class="weibo">
-            <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1741079110&verifier=fe1976e4&dpc=1"></iframe>
-          </div>
-        </div>
-      </div>
+      
       <footer>
         <p>email: {{ site.author.email }} &nbsp;&nbsp; | &nbsp;&nbsp; <a href="https://github.com/squirrel20" target="_blank">Github</a> &nbsp;&nbsp;| &nbsp;&nbsp; <a href="http://weibo.com/myspes" target="_blank">微博</a><p>
         <p>&copy; {{ site.author.name }} 2014 

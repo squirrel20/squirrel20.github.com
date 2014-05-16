@@ -45,14 +45,20 @@ tagline: view article
 <div class="home-excerpt">
     <h3 style="text-align:center">推广链接</h3>
     <ul class="post-list">
-        <li>    
-            <span class="entry-title"><a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">印象笔记(Evernoe)</a></span>
-        </li>
-        <li>    
-            <span class="entry-title"><a href="https://db.tt/1U5Pxqmo" target="_blank">Dropbox</a></span>
+        <li>
+            <span class="entry-title">
+                <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">印象笔记(Evernoe)</a>
+            </span>
         </li>
         <li>
-            <span class="entry-title"><a href="https://www.codebox.io/?affiliate=535baaa9d9cff90200000314" target="_blank">Codebox</a></span>
+            <span class="entry-title">
+                <a href="https://db.tt/1U5Pxqmo" target="_blank">Dropbox</a>
+            </span>
+        </li>
+        <li>
+            <span class="entry-title">
+                <a href="https://www.codebox.io/?affiliate=535baaa9d9cff90200000314" target="_blank">Codebox</a>
+            </span>
         </li>
     </ul>
 </div>

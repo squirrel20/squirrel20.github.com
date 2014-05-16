@@ -24,7 +24,7 @@ tagline: view article
     <ul class="post-list">
         <li>
             <span class="entry-title">
-                <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">印象笔记(Evernoe)</a>
+                <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">Evernote</a>
             </span>
         </li>
         <li>
@@ -43,27 +43,30 @@ tagline: view article
 
 <!-- 最近文章开始 -->
 <div>
-{% for post in site.posts limit 10 %}
-<div class="home-excerpt">
-    <div class="home-excerpt-head">
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <h5>
-            时间：
-            <span>{{ post.date | date:"%Y/%m/%d"}}</span>
-            ，标签：
-            {% for tag in post.tags %}
-            <span>{{ tag }}</span>
-            {% endfor %}
-        </h5>
+    {% for post in site.posts limit 10 %}
+    <div class="home-excerpt">
+        <div class="home-excerpt-head">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <h5>
+                时间：
+                <span>{{ post.date | date:"%Y/%m/%d"}}</span>
+                ，标签：
+                {% for tag in post.tags %}
+                <span>{{ tag }}</span>
+                {% endfor %}
+            </h5>
+        </div>
+    	<div class="home-excerpt-content">
+    		{{ post.content | | split:'<!--excerpt-->' | first }}
+    	</div>
+        <div class="home-excerpt-footer">
+            <a href="{{ post.url }}">继续阅读...</a>
+        </div>
     </div>
-	<div class="home-excerpt-content">
-		{{ post.content | | split:'<!--excerpt-->' | first }}
-	</div>
-    <div class="home-excerpt-footer">
-        <a href="{{ post.url }}">继续阅读...</a>
-    </div>
+    {% endfor %}
 </div>
-{% endfor %}
-</div>
+
 <!-- 最近文章结束 -->
+
+<br />
 

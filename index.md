@@ -18,9 +18,12 @@ tagline: view article
           box-shadow: 0 0 0;
 }
 </style>
+<div class="home-excerpt">
+    <h4>Talk is cheap，show me the code!</h4>
+</div>
 <!-- 推广链接开始 -->
 <div class="home-excerpt">
-    <h3 style="text-align:center">推广链接</h3>
+    <h3 style="">推广链接</h3>
     <ul class="post-list">
         <li>
             <span class="entry-title">

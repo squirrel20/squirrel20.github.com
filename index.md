@@ -21,29 +21,53 @@ tagline: view article
 <div class="home-excerpt">
     <h4>Talk is cheap，show me the code!</h4>
 </div>
-<!-- 推广链接开始 -->
-<div class="home-excerpt">
-    <h3 style="">推广链接</h3>
-    <ul class="post-list">
-        <li>
-            <span class="entry-title">
-                <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">Evernote</a>
-            </span>
-        </li>
-        <li>
-            <span class="entry-title">
-                <a href="https://db.tt/1U5Pxqmo" target="_blank">Dropbox</a>
-            </span>
-        </li>
-        <li>
-            <span class="entry-title">
-                <a href="https://www.codebox.io/?affiliate=535baaa9d9cff90200000314" target="_blank">Codebox</a>
-            </span>
-        </li>
-    </ul>
-</div>
-<!-- 推广链接结束 -->
 
+<div>
+    <!-- 推广链接开始 -->
+    <div class="home-excerpt">
+        <h3 style="">推广链接</h3>
+        <ul class="post-list">
+            <li>
+                <span class="entry-title">
+                    <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">Evernote</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://db.tt/1U5Pxqmo" target="_blank">Dropbox</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://www.codebox.io/?affiliate=535baaa9d9cff90200000314" target="_blank">Codebox</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <!-- 推广链接结束 -->
+    <!-- 链接开始 -->
+    <div class="home-excerpt" style="display:none">
+        <h3 style="">推广链接</h3>
+        <ul class="post-list">
+            <li>
+                <span class="entry-title">
+                    <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">Evernote</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://db.tt/1U5Pxqmo" target="_blank">Dropbox</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://www.codebox.io/?affiliate=535baaa9d9cff90200000314" target="_blank">Codebox</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <!-- 链接结束 -->
+</div>
 <!-- 最近文章开始 -->
 <div>
     {% for post in site.posts limit 10 %}

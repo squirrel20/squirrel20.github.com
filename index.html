@@ -1,0 +1,124 @@
+---
+layout: default
+title: 松老师
+tagline: view article
+---
+{% include JB/setup %}
+<style type="text/css">
+.content{
+    background-color: inherit;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    -webkit-border-radius: 0 0 0 0;
+     -moz-border-radius: 0 0 0 0;
+          border-radius: 0 0 0 0;
+  -webkit-box-shadow: 0 0 0;
+     -moz-box-shadow: 0 0 0;
+          box-shadow: 0 0 0;
+}
+</style>
+<div class="home-excerpt">
+    <h4>Talk is cheap，show me the code!</h4>
+</div>
+
+<div>
+    <!-- 推广链接开始 -->
+    <div class="home-excerpt">
+        <h3 style="">推广链接</h3>
+        <ul class="post-list">
+            <li>
+                <span class="entry-title">
+                    <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">Evernote</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://db.tt/1U5Pxqmo" target="_blank">Dropbox</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://www.codebox.io/?affiliate=535baaa9d9cff90200000314" target="_blank">Codebox</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <!-- 推广链接结束 -->
+    <!-- 链接开始 -->
+    <div class="home-excerpt" style="display:none">
+        <h3 style="">推广链接</h3>
+        <ul class="post-list">
+            <li>
+                <span class="entry-title">
+                    <a href="https://app.yinxiang.com/referral/Registration.action?uid=4904023&sig=54284ba0ed39107ea43b8e7bc3a37392" target="_blank">Evernote</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://db.tt/1U5Pxqmo" target="_blank">Dropbox</a>
+                </span>
+            </li>
+            <li>
+                <span class="entry-title">
+                    <a href="https://www.codebox.io/?affiliate=535baaa9d9cff90200000314" target="_blank">Codebox</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <!-- 链接结束 -->
+</div>
+<!-- 最近文章开始 -->
+<div>
+    {% for post in paginator.posts %}
+    <div class="home-excerpt">
+        <div class="home-excerpt-head">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <h5>
+                时间：
+                <span>{{ post.date | date:"%Y/%m/%d"}}</span>
+                ，标签：
+                {% for tag in post.tags %}
+                <span>{{ tag }}</span>
+                {% endfor %}
+            </h5>
+        </div>
+    	<div class="home-excerpt-content">
+    		{{ post.content | | split:'<!--excerpt-->' | first }}
+    	</div>
+        <div class="home-excerpt-footer">
+            <a href="{{ post.url }}">继续阅读...</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- 最近文章结束 -->
+
+<!-- 分页代码开始 -->
+{% if paginator.total_pages > 1 %}
+
+{% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/'  }}"上一页</a>
+{% endif %}
+
+{% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+	      <span class="active">{{ page  }}</span>
+		      {% elsif page == 1 %}
+			        <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/'  }}">{{ page  }}</a>
+					    {% else %}
+						      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page  }}">{{ page  }}</a>
+							      {% endif %}
+								  {% endfor %}
+
+
+{% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/'  }}">下一页</a>
+	{% endif %}
+
+{% endif %}
+<!-- 分页代码结束 -->
+
+<br />
+

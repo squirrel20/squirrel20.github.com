@@ -22,6 +22,34 @@ tagline: view article
     <h4>Talk is cheap，show me the code!</h4>
 </div>
 
+
+<!-- 最近文章开始 -->
+<div>
+    {% for post in paginator.posts %}
+    <div class="home-excerpt">
+        <div class="home-excerpt-head">
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <h5>
+                时间：
+                <span>{{ post.date | date:"%Y/%m/%d"}}</span>
+                ，标签：
+                {% for tag in post.tags %}
+                <span>{{ tag }}</span>
+                {% endfor %}
+            </h5>
+        </div>
+    	<div class="home-excerpt-content">
+    		{{ post.content | | split:'<!--excerpt-->' | first }}
+    	</div>
+        <div class="home-excerpt-footer">
+            <a href="{{ post.url }}">继续阅读...</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- 最近文章结束 -->
+
 <div>
     <!-- 推广链接开始 -->
     <div class="home-excerpt">
@@ -68,32 +96,6 @@ tagline: view article
     </div>
     <!-- 链接结束 -->
 </div>
-<!-- 最近文章开始 -->
-<div>
-    {% for post in paginator.posts %}
-    <div class="home-excerpt">
-        <div class="home-excerpt-head">
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <h5>
-                时间：
-                <span>{{ post.date | date:"%Y/%m/%d"}}</span>
-                ，标签：
-                {% for tag in post.tags %}
-                <span>{{ tag }}</span>
-                {% endfor %}
-            </h5>
-        </div>
-    	<div class="home-excerpt-content">
-    		{{ post.content | | split:'<!--excerpt-->' | first }}
-    	</div>
-        <div class="home-excerpt-footer">
-            <a href="{{ post.url }}">继续阅读...</a>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-
-<!-- 最近文章结束 -->
 
 <!-- 分页代码开始 -->
 <div class="pag home-excerpt">

@@ -39,7 +39,7 @@ tagline: view article
             </h5>
         </div>
     	<div class="home-excerpt-content">
-    		{{ post.content | | split:'<!--excerpt-->' | first }}
+    		{{ post.content | | split:'<!--more-->' | first }}
     	</div>
         <div class="home-excerpt-footer">
             <a href="{{ post.url }}">继续阅读...</a>

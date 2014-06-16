@@ -56,7 +56,7 @@ _注：_这套坐标系统与Android 2D API中的以屏幕右上角为原点的�
 </tbody>
 </table>
 
-<!--excerpt-->
+<!--more-->
 
 ### public final float[] values 概述
 

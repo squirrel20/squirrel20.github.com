@@ -67,7 +67,7 @@ name
 </tbody>
 </table>
 
-<!--excerpt-->
+<!--more-->
 
 #### 0.2 /etc/group
 

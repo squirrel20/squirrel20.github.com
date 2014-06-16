@@ -5,7 +5,11 @@ permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 pygments: true
 
-markdown: redcarpet
+#markdown: redcarpet
+markdown: kramdown
+
+kramdown:
+  input: GFM
 
 #img_url: http://myspescdn.sinaapp.com/assets/images
 img_url: assets/images/

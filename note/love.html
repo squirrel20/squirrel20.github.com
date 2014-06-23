@@ -1,1 +1,22 @@
-http://js1k.com/2012-love/demo/1025
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <title>hi</title>
+</head>
+<body>
+	<a href="http://myspes.info" target="_blank">回到我的博客</a>
+	<canvas id="c"  style=""></canvas>
+		<script>
+			var b = document.body;
+			var c = document.getElementsByTagName('canvas')[0];
+			var a = c.getContext('2d');
+			document.body.clientWidth; // fix bug in webkit: http://qfox.nl/weblog/218
+		</script>
+		<script>
+// start of submission //
+function N(){M=document.createElement("canvas"),M.width=W,M.height=H,m=M.getContext("2d"),S(m,B),m.fillRect(0,0,W,H),m.globalCompositeOperation="xor",m.beginPath(),Z=W/2,h=H/3,P=Math.PI,m.moveTo(Z,H*.8),m.lineTo(Z-h-h/7,h+h/8),m.arc(Z-h/2,h,h*.6,P-P/8,0),m.arc(Z+h/2,h,h*.6,P,P/8),m.closePath(),m.fill(),m.font=O+"px Arial",S(m,B),m.fillText(s,Z-h*s.length*.1,h/.7)}function I(){S(a,"#f00");for(k=0;k<10;k++)D=Y-5+k,E=L[D],f=E[0],F=E[1],X-10<f&&(f=L[D][0]=X-5),X+5>F&&(F=L[D][1]=X+5),a.fillRect(f,D,F-f,1),a.fillRect(f,D,F-f,1);a.drawImage(M,0,0),S(a,b),a.fillText("在屏幕上移动鼠标",Z,50)}function S(a,b){a.fillStyle=b}w=window,W=w.innerWidth,H=w.innerHeight,L=[];for(k=-99;k<H;k++)L[k]=[9e9,0];c.width=W,c.height=H,c.style.width=W+"px",c.style.height=H+"px",B="#FFF",b="#000",S(a,B),a.fillRect(0,0,W,H),O=H/6,s="qxh",N(),a.drawImage(M,0,0),X=Y=0,setInterval(I,10),c.onmousemove=function(a){X=a.clientX,Y=a.clientY},w.onkeydown=function(a){U=a.keyCode,U==13?s="":U==107?O++:U==109?O--:s+=String.fromCharCode(U),N(s)}
+// end of submission //
+		</script>
+		<!-- http://js1k.com/2012-love/demo/1025 -->
+</body>
+</html>

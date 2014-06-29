@@ -9,23 +9,140 @@ tags: []
 
 ### 第2章
 
-binary()
+(4) 运行文件客户端和服务器代码。加入一个名为put_file的命令。你需要添加何种消息？学习如何查阅手册页。查阅手册页里的file模块。
 
-iodata()
+	afile_server.erl
 
-	read_file(Filename) -> {ok, Binary} | {error, Reason}
+{% highlight erlang %}
+-module(afile_server).
+-export([start/1, loop/1]).
 
-	Types:
+start(Dir) -> spawn(afile_server, loop, [Dir]) .
 
-	Filename = name_all()
-	Binary = binary()
-	Reason = posix() | badarg | terminated | system_limit
+loop(Dir) ->
+	receive
+		{Client, list_dir} ->
+			Client ! {self(), file:list_dir(Dir)};
+		{Client, {get_file, File}} ->
+			Full = filename:join(Dir, File),
+			Client ! {self(), file:read_file(Full)};
+		{Client, {put_file, Path, {ok, Content}}} ->
+			file:write_file(Path, Content),
+			Client ! {self(), {ok, {Path, "upload done!"}}}
+	end,
+	loop(Dir).
+{% endhighlight %}
 
+	afile_client.erl
 
-	write_file(Filename, Bytes) -> ok | {error, Reason}
+{% highlight erlang %}
+-module(afile_client).
+-export([test/0, ls/1, get_file/2, put_file/3]).
 
-	Types:
+test() ->
+	Server = afile_server:start("."),
+	put_file(Server, "notice.html", "notice2.html").
 
-	Filename = name_all()
-	Bytes = iodata()
-	Reason = posix() | badarg | terminated | system_limit
+ls(Server) ->
+	Server ! {self(), list_dir},
+	receive
+		{Server, FileList} ->
+			FileList
+	end.
+
+get_file(Server, File) ->
+	Server ! {self(), {get_file, File}},
+	receive
+		{Server, Content} ->
+			Content
+	end.
+
+put_file(Server, FromFile, ToFile) ->
+	Server ! {self(), {put_file, ToFile, file:read_file(FromFile)}},
+	receive
+		{Server, {ok, MSG}} ->
+			MSG
+	end.
+{% endhighlight %}
+
+### 第3章
+
+(1) 快速浏览3.1.3节，然后测试并记忆这些行编辑命令。
+
+|命令			|说明|
+|--------------------|
+|^A 			|行首|
+|^D 			|删除当前字符|
+|^E 			|行尾|
+|^F或右箭头键	|向前的字符|
+|^B或左箭头键	|向后的字符|
+|^P或上箭头键	|前一行|
+|^N或下箭头键	|下一行|
+|^T 			|调换最近两个字符的位置|
+|Tab 			|尝试扩展当前模块或函数的名称|
+
+(2) 在shell里输入help()命令。你将看到一长串命令。可以试试其中的一些命令。
+
+	(erl@******)2> help().
+	** shell internal commands **
+	b()        -- display all variable bindings
+	e(N)       -- repeat the expression in query <N>
+	f()        -- forget all variable bindings
+	f(X)       -- forget the binding of variable X
+	h()        -- history
+	history(N) -- set how many previous commands to keep
+	results(N) -- set how many previous command results to keep
+	catch_exception(B) -- how exceptions are handled
+	v(N)       -- use the value of query <N>
+	rd(R,D)    -- define a record
+	rf()       -- remove all record information
+	rf(R)      -- remove record information about R
+	rl()       -- display all record information
+	rl(R)      -- display record information about R
+	rp(Term)   -- display Term using the shell's record information
+	rr(File)   -- read record information from File (wildcards allowed)
+	rr(F,R)    -- read selected record information from file(s)
+	rr(F,R,O)  -- read selected record information with options
+	** commands in module c **
+	bt(Pid)    -- stack backtrace for a process
+	c(File)    -- compile and load code in <File>
+	cd(Dir)    -- change working directory
+	flush()    -- flush any messages sent to the shell
+	help()     -- help info
+	i()        -- information about the system
+	ni()       -- information about the networked system
+	i(X,Y,Z)   -- information about pid <X,Y,Z>
+	l(Module)  -- load or reload module
+	lc([File]) -- compile a list of Erlang modules
+	ls()       -- list files in the current directory
+	ls(Dir)    -- list files in directory <Dir>
+	m()        -- which modules are loaded
+	m(Mod)     -- information about module <Mod>
+	memory()   -- memory allocation information
+	memory(T)  -- memory allocation information of type <T>
+	nc(File)   -- compile and load code in <File> on all nodes
+	nl(Module) -- load module on all nodes
+	pid(X,Y,Z) -- convert X,Y,Z to a Pid
+	pwd()      -- print working directory
+	q()        -- quit - shorthand for init:stop()
+	regs()     -- information about registered processes
+	nregs()    -- information about all registered processes
+	xm(M)      -- cross reference check a module
+	y(File)    -- generate a Yecc parser
+	** commands in module i (interpreter interface) **
+	ih()       -- print help for the i module
+	true
+
+(3) 试着用一些元组来表示一座房子，再用一个房子列表来表示一条街道。请确保你能向这些结构中加入数据或从中取出数据。
+
+假设房子包含的信息有：主人姓名、门牌号和房子面积。则一个房子用元祖表示的例子为：
+
+	{joe, a_121, 123}
+
+一条街道就包含了很多房子，故街道列表的元素即为房子元组，一个街道列表的例子为：
+
+	[{joe, a_121, 123}, {joe, a_122, 123}]
+
+没错，这条街都是joe的，好羡慕。
+
+向列表加入和提取数据都在列表头操作。即[X|Y] = L。

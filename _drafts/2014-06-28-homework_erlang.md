@@ -65,6 +65,8 @@ put_file(Server, FromFile, ToFile) ->
 	end.
 {% endhighlight %}
 
+<!--more-->
+
 ### 第3章
 
 (1) 快速浏览3.1.3节，然后测试并记忆这些行编辑命令。
@@ -179,5 +181,73 @@ for(Max, Max, T, L) -> [erlang:element(Max, T)|L].
 
 主要需要用到两个关于元组的函数：
 
-* tuple_size(Tuple) -> integer() >= 0	% erlang模块
-* element(N, Tuple) -> term()	% erlang模块
+	erlang:tuple_size(Tuple) -> integer() >= 0	
+	erlang:element(N, Tuple) -> term()	
+
+(3) 查看erlang:now/0、erlang:date/0和erlang:time/0的定义。请编写一个名为my_time_func(F)的函数，让它执行fun F并记下执行时间。编写一个名为my_date_string()的函数，用它把当前的日期和时间改成整齐的格式。
+
+	erlang:now() -> Timestamp
+
+Types:
+
+Timestamp = timestamp()
+timestamp() = 
+    {MegaSecs :: integer() >= 0,
+     Secs :: integer() >= 0,
+     MicroSecs :: integer() >= 0}
+
+	erlang:date() -> Date
+
+Types:
+
+Date = calendar:date()
+Returns the current date as {Year, Month, Day}.
+
+	erlang:time() -> Time
+
+Types:
+
+Time = calendar:time()
+Returns the current time as {Hour, Minute, Second}.
+
+{% highlight erlang %}
+-module(time).
+-export([my_time/0]).
+
+my_time() ->
+	my_time_func(fun() -> my_date_string() end).
+
+my_time_func(F) ->
+	F().
+
+my_date_string() ->
+	{Year, Month, Day} = date(),
+	{Hour, Minute, Second} = time(),
+	{Year, Month, Day, Hour, Minute, Second}.
+{% endhighlight %}
+
+(5,6,7) math_functions.erl模块的一些功能
+
+{% highlight erlang %}
+-module(math_functions).
+-export([even/1, odd/1, filter/2, split1/1, split2/1]).
+
+even(X) -> X rem 2 =:= 0.
+odd(X) -> X rem 2 =:= 1.
+
+filter(F, L) ->
+	[X || X <- L, F(X)].
+
+split1(L) ->
+	{filter(fun(X) -> X rem 2 =:= 0 end, L), filter(fun(X) -> X rem 2 =:= 1 end, L)}.
+
+split2(L) ->
+	split2_acc(L, [], []).
+
+split2_acc([H|T], Odds, Evens) ->
+	case (H rem 2) of
+		1 -> split2_acc(T, [H|Odds], Evens);
+		0 -> split2_acc(T, Odds, [H|Evens])
+	end;
+split2_acc([], Odds, Evens) -> {Evens, Odds}.
+{% endhighlight %}

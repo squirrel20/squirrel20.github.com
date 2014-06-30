@@ -146,3 +146,38 @@ put_file(Server, FromFile, ToFile) ->
 没错，这条街都是joe的，好羡慕。
 
 向列表加入和提取数据都在列表头操作。即[X|Y] = L。
+
+### 第4章
+
+(1) 扩展geometry.erl。添加一些子句来计算圆和直角三角形的面积。添加一些子句来计算各种几何图形的周长。
+
+{% highlight erlang %}
+-module (geometry).
+-export ([area/1, circumference/1]).
+area({rectangle, Width, Ht})	-> Width * Ht;
+area({circle, R})				-> 3.14159 * R * R;
+area({right_triangle, Left, Right})	-> Left * Right / 2.
+
+circumference({rectangle, Width, Ht})	-> (Width + Ht) * 2;
+circumference({circle, R})				-> 2 * 3.14159 * R;
+circumference({right_triangle, Left, Right})	
+	-> Left + Right + math:sqrt(Left * Left + Right * Right).
+{% endhighlight %}
+
+(2) 内置函数tuple_to_list(T)能将元组T里的元素转换成一个列表。轻编写一个名为my_tuple_to_list(T)的函数来做同样的事，但不要使用相同功能的内置函数。
+
+{% highlight erlang %}
+-module(convert).
+-export([my_tuple_to_list/1]).
+
+my_tuple_to_list(T) ->
+	for(1, erlang:tuple_size(T), T, []).
+
+for(I, Max, T, L) when I < Max -> for(I + 1, Max, T, [erlang:element(I, T)|L]);
+for(Max, Max, T, L) -> [erlang:element(Max, T)|L].
+{% endhighlight %}
+
+主要需要用到两个关于元组的函数：
+
+* tuple_size(Tuple) -> integer() >= 0	% erlang模块
+* element(N, Tuple) -> term()	% erlang模块

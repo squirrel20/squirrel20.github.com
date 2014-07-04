@@ -251,3 +251,54 @@ split2_acc([H|T], Odds, Evens) ->
 	end;
 split2_acc([], Odds, Evens) -> {Evens, Odds}.
 {% endhighlight %}
+
+### 第5章
+
+(1) 我没找到Erlang里有关于json的函数。
+
+(2) 编写一个map_search_pred(Map, Pred)函数，让它返回映射组里第一个复合条件的{Key, Value}元素（条件是Pred(Key, Value)为true）。
+
+{% highlight erlang %}
+-module(map).
+-export([map_search_pred/2]).
+
+map_search_pred(Map, Pred) ->
+	L = maps:to_list(Map),
+	mp(L, Pred).
+
+mp([{Key, Val}|T], Pred) ->
+	Stat = Pred(Key, Val),
+	if
+		Stat ->
+			{Key, Val};
+		length(T) > 0 ->
+			mp(T, Pred);
+		true ->
+			{no, one}
+	end.
+
+{% endhighlight %}
+
+### 第6章
+
+(1) file:read_file(File)会返回{ok, Bin}或者{error, Why}，其中File是文件名，Bin则包含了文件的内容。请编写一个myfile:read(File)函数，当文件可读取时返回Bin，否则抛出一个异常错误。
+
+{% highlight erlang %}
+-module(map).
+-export([map_search_pred/2]).
+
+map_search_pred(Map, Pred) ->
+	L = maps:to_list(Map),
+	mp(L, Pred).
+
+mp([{Key, Val}|T], Pred) ->
+	Stat = Pred(Key, Val),
+	if
+		Stat ->
+			{Key, Val};
+		length(T) > 0 ->
+			mp(T, Pred);
+		true ->
+			{no, one}
+	end.
+{% endhighlight %}

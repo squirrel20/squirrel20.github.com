@@ -2,7 +2,6 @@
 layout: page
 title: 杂记
 header : Note
-group: navigation
 ---
 {% include JB/setup %}
 

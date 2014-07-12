@@ -345,3 +345,25 @@ cathcer(N) ->
 		done
 	end.
 {% endhighlight %}
+
+### 第7章
+
+(1) 编写一个函数来反转某个二进制型里的字节顺序。
+
+{% highlight erlang %}
+-module(lecture7).
+-export([convert_byte/1]).
+
+convert_byte(Bin) ->
+	list_to_binary(convert_list(binary_to_list(Bin), [])).
+
+convert_list([H|T], L) ->
+	if
+		length(T) > 0 ->
+			convert_list(T, [H|L]);
+		true ->
+			[H|L]
+	end.
+{% endhighlight %}
+
+(2,3,4) 编写一个term_to_packet(Term) -> Packet 函数，通过调用term_to_bianry(Term)来生成并返回一个二进制型，它内含长度为4个字节的包头N，后跟N个字节的数据。编写一个反转函数packet_to_term(Packet) -> Term ，使得它成为前一个函数的逆向函数。按照4.1.3节的样式编写一个测试，测一下之前的两个函数是否能正确地把数据类型编码成数据包（Packet），以及通过解码数据包来复原最初的数据类型。

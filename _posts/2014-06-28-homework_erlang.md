@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Erlang程序设计（第2版）-习题解答"
+title: "Erlang程序设计（第2版）- 习题解答"
 description: ""
 category: ""
 tags: []

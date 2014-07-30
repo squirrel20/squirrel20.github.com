@@ -9,7 +9,51 @@ tags: []
 
 > *注：下面的内容是用来复习的，不是用来预习的。*
 
-## 二叉树
+## 基本数据结构
+
+### 栈
+
+栈实现了一种后进先出（LIFO）的策略。如果试图对一个空栈作弹出操作，则称栈下溢；如果压栈操作超出了栈说能容纳的上限，则称栈上溢。
+
+    push(S, x) {
+        top[S] = top[S] + 1
+        S[top[S]] = x
+    }
+
+    pop(S) {
+        top[X] = top[S] - 1
+        return S[top[S] + 1]
+    }
+
+### 队列
+
+队列实现了一种先进先出（FIFO）的策略。当一个元素入队时，将排在队尾；出队的元素总是队首的元素。
+
+    enqueue(Q, x) {
+        Q[tail[Q]] = x
+        if (tail[Q] == length[Q])
+            tail[Q] = 1
+        else
+            tail[Q] = tail[Q] + 1
+    }
+
+    dequeue(Q) {
+        x = Q[head[Q]]
+        if head[Q] = length[Q]
+            head[Q] = 1
+        else
+            head[Q] = head[Q] + 1
+    }
+
+### 链表
+
+双链表的每一个元素都是一个对象。每个对象包含一个关键字和两个指针域：next和prev（分别指向下一个对象和上一个对象）。空对象可以用哨兵(sentinel)来表示，这样就简化了边界条件。
+
+    list_delete(L, x) {
+        // 不考虑边界条件时
+        next[prev[x]] = nex[x]
+        prev[next[x]] = prev[x]
+    }
 
 ### 二叉查找树
 
@@ -93,6 +137,32 @@ B树是为磁盘或其他直接存取辅助存储设备而设计的一种平衡�
 3）若n较大，则应采用时间复杂度为O(nlgn)的排序方法：快速排序、堆排序或归并排序。快速排序是目前基于比较的内部排序中被认为是最好的方法，当待排序的关键字是随机分布时，快速排序的平均时间最短；堆排序所需的辅助空间少于快速排序，并且不会出现快速排序可能出现的最坏情况。这两种排序都是不稳定的。
 
 若要求排序稳定，则可选用归并排序。但本章介绍的从单个记录起进行两两归并的排序算法并不值得提倡，通常可以将它和直接插入排序结合在一起使用。先利用直接插入排序求得较长的有序子文件，然后再两两归并之。因为直接插入排序是稳定 的，所以改进后的归并排序仍是稳定的。
+
+#### 二分搜索代码
+
+{% highlight c %}
+int binary_search(int *arr, int length, int key)
+{
+    int left, mid, right;
+
+    left = 0;
+    right = length - 1;
+    mid = (left + right) / 2;
+
+    while (left <= right) {
+        if (arr[mid] == key)
+            return mid;
+        else if (arr[mid] < key)
+            left = mid + 1;
+        else
+            right = mid - 1;
+
+        mid = (left + right) / 2;
+    }
+
+    return -1;
+}
+{% endhighlight %}
 
 #### 快排代码
 

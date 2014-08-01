@@ -36,9 +36,13 @@ tags: []
 
 其中用的比较多的是sar，下面将会对sar做些简单的介绍。
 
+<!--more-->
+
 #### sar
 
 > sar - Collect, report, or save system activity information.
+
+下面这个命令是在测试中用到的。
 
 	sar -n DEV 1 100
 
@@ -80,4 +84,4 @@ tags: []
 		     Utilization  percentage  of  the  network  interface. For half-duplex interfaces, utilization is calculated using the sum of rxkB/s and txkB/s as a percentage of the
 		     interface speed. For full-duplex, this is the greater of rxkB/S or txkB/s.
 
-1代表间隔1秒做一次记录，100代表一共记录100次后退出。
+`sar -n DEV 1 100`中的`1`代表间隔1秒做一次记录，`100`代表一共记录100次后退出。

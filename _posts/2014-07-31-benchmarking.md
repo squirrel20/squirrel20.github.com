@@ -39,3 +39,45 @@ tags: []
 #### sar
 
 > sar - Collect, report, or save system activity information.
+
+	sar -n DEV 1 100
+
+在man手册中，关于`-n DEV`的解释如下：
+
+	-n { keyword [,...] | ALL }
+
+		Report network statistics.
+
+		Possible keywords are *DEV*, EDEV, NFS, NFSD, SOCK, IP, EIP, ICMP, EICMP, TCP, ETCP, UDP, SOCK6, IP6, EIP6, ICMP6, EICMP6 and UDP6.
+
+		With the *DEV* keyword, statistics from the network devices are reported.  The following values are displayed:
+
+		IFACE
+		     Name of the network interface for which statistics are reported.
+
+		rxpck/s
+		     Total number of packets received per second.
+
+		txpck/s
+		     Total number of packets transmitted per second.
+
+		rxkB/s
+		     Total number of kilobytes received per second.
+
+		txkB/s
+		     Total number of kilobytes transmitted per second.
+
+		rxcmp/s
+		     Number of compressed packets received per second (for cslip etc.).
+
+		txcmp/s
+		     Number of compressed packets transmitted per second.
+
+		rxmcst/s
+		     Number of multicast packets received per second.
+
+		%ifutil
+		     Utilization  percentage  of  the  network  interface. For half-duplex interfaces, utilization is calculated using the sum of rxkB/s and txkB/s as a percentage of the
+		     interface speed. For full-duplex, this is the greater of rxkB/S or txkB/s.
+
+1代表间隔1秒做一次记录，100代表一共记录100次后退出。

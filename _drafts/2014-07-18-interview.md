@@ -55,6 +55,8 @@ tags: []
         prev[next[x]] = prev[x]
     }
 
+<!--more-->
+
 ### 二叉查找树
 
 即可用作字典，也可用作优先队列。
@@ -645,7 +647,13 @@ S[i][j]有两种计算方式：1.对于每一行，从左向右计算，然后�
 5. 信号量（semaphore）：主要作为进程间以及同一进程不同线程之间的同步手段。
 6. 套接口（Socket）：更为一般的进程间通信机制，可用于不同机器之间的进程间通信。起初是由Unix系统的BSD分支开发出来的，但现在一般可以移植到其它类Unix系统上：Linux和System V的变种都支持套接字。
 
-### Linux命令
+### 广度优先搜索
+
+### 深度优先搜索
+
+## Linux命令
+
+[Linux常用命令](https://app.yinxiang.com/pub/myspes/tools)
 
 #### netstat
 

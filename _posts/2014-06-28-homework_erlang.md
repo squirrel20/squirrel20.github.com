@@ -2,8 +2,8 @@
 layout: post
 title: "Erlang程序设计（第2版）- 习题解答"
 description: ""
-category: ""
-tags: []
+category: "Erlang程序设计"
+tags: [读书笔记]
 ---
 {% include JB/setup %}
 

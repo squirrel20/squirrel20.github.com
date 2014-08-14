@@ -2,8 +2,8 @@
 layout: post
 title: "基准测试"
 description: ""
-category: ""
-tags: []
+category: "工具"
+tags: [Erlang]
 ---
 {% include JB/setup %}
 

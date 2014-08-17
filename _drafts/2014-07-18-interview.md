@@ -2,8 +2,8 @@
 layout: post
 title: "面试准备"
 description: ""
-category: ""
-tags: []
+category: "读书笔记"
+tags: [读书笔记]
 ---
 {% include JB/setup %}
 

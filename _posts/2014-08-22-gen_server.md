@@ -35,8 +35,11 @@ call() ->
 cast() ->
 	gen_server:cast(?MODULE, async).
 
+info() ->
+	?MODULE ! info.
+
 stop() ->
-	gen_server:call(?MODULE, stop).
+	gen_server:cast(?MODULE, stop).
 
 %% callback functions
 
@@ -44,15 +47,13 @@ init([]) -> {ok, #state{}}.
 
 handle_call(hi, _From, State) ->
 	State1 = State#state{a = hi},
-	{reply, ok, State1};
-handle_call(stop, _From, State) ->
-	{stop, got_stop_msg, State}.
+	{reply, ok, State1}.
 
 handle_cast(async, State) ->
 	State1 = State#state{b = got_async_msg},
 	{noreply, State1};
 handle_cast(stop, State) ->
-	{stop, got_async_stop_msg, State}.
+	{stop, got_stop_msg, State}.
 
 handle_info(_Info, State) ->
 	State1 = State#state{a = got_info},
@@ -123,3 +124,58 @@ gen_server:start_link在执行时会调用Module:init用来初始化gen_sever。
 通过gen_server:start_link/4或gen_server:start/4新启动一个gen_server进程时，要指定回调模块，回调模块中export出这些回调函数。
 
 gen_server收到了消息后都是通过这些回调函数实现具体的功能。例如，收到gen_server:call/2发来的消息会调用回调函数Module:handle_call/3处理，收到gen_server:cast/2发来的消息会调用回调函数Module:handle_cast/2处理，收到Pid!Msg方式发来的消息会调用回掉函数Module:handle_info处理。
+
+### 同步请求 - Call
+
+{% highlight erlang %}
+call() ->
+	gen_server:call(?MODULE, hi).
+{% endhighlight %}
+
+通过调用上述函数，将会向gen_server发送一个同步请求，当gen_server返回结果给该函数后，该函数才会结束。
+
+在该代码中，?MODULE为模块名，即gen_server_test，在示例代码中指定了?MODULE为gen_server的注册名。
+
+通过gen_server:call/2，请求将会发送给gen_server，当请求被gen_server收到，gen_server会调用回调模块gen_server_test中的回调函数handle_call(hi, _From, State)，在示例代码中，即为调用如下代码：
+
+{% highlight erlang %}
+handle_call(hi, _From, State) ->
+	State1 = State#state{a = hi},
+	{reply, ok, State1};
+{% endhightlihgt %}
+
+### 异步请求 - Cast
+
+{% highlight erlang %}
+cast() ->
+	gen_server:cast(?MODULE, async).
+{% endhighlight %}
+
+通过调用上述函数，将会向gen_server发送一个异步请求，执行该函数将会立即返回。发送的请求异步发送给gen_server，当gen_server收到该请求，将会调用回调模块gen_server_test中的回调模块handle_cast/2来处理，即如下代码：
+
+{% highlight erlang %}
+handle_cast(async, State) ->
+	State1 = State#state{b = got_async_msg},
+	{noreply, State1};
+{% end highlight %}
+
+### 停止gen_server
+
+{% highlight erlang %}
+stop() ->
+	gen_server:cast(?MODULE, stop).
+{% endhighlight %}
+
+执行上面的函数，gen_server将会调用回调模块gen_server_test中的回调函数handle_cast/2，如下代码：
+
+{% highlight erlang %}
+handle_cast(stop, State) ->
+	{stop, got_stop_msg, State}.
+{% endhighlight %}
+
+当该回调函数（或任意回调函数）返回{stop,..}，即会停止gen_server，在停止前会调用回调函数terminate/2，如下代码：
+
+{% highlight erlang %}
+terminate(_Reason, State) ->
+	ok.
+{% endhighlight %}

@@ -248,10 +248,10 @@ gen_server定义了接口，回调模块需实现这些接口。
 
 启动gen_server需要调用gen_server:start/3,4或gen_server:start_link/3,4，其执行过程如下：
 
-1. gen_server:start/3,4 | gen_server:start_link/3,4
+1. gen_server:start/3,4  gen_server:start_link/3,4
 2. gen:start/5,6
 3. gen:do_spawn/5,6
-4. proc_lib:start/5 | proc_lib:start_link/5
+4. proc_lib:start/5  proc_lib:start_link/5
 6. gen:init_it/6,7
 7. gen:init_it2/7
 8. gen_server:init_it/6

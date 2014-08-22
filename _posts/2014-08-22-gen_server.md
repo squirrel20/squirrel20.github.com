@@ -76,16 +76,14 @@ code_change(_OldVsn, State, _Extra) ->
 	start_link(Module, Args, Options) -> Result
 	start_link(ServerName, Module, Args, Options) -> Result
 
-		ServerName = {local, Name}\|{global, GlobalName}\|{via, Module, ViaName}
-		Module = atom()
-		Args = term()
-		Options = [Option]
-		Option = {debug, Dbgs}|{timeout, Time}|{spawn_opt, SOpts}
-		Result = {ok, Pid}|ignore|{error, Error}
+	ServerName = {local, Name}|{global, GlobalName}|{via, Module, ViaName}
+	Module = atom()
+	Args = term()
+	Options = [Option]
+	Option = {debug, Dbgs}|{timeout, Time}|{spawn_opt, SOpts}
+	Result = {ok, Pid}|ignore|{error, Error}
 
 *参数解释*
-
-
 
 如果ServerName={lcoal,Name}，将使用register/2给gen_server注册本地名Name。
 
@@ -108,3 +106,20 @@ Options是一系列Option组成的元组。如果设置了{timeout, Time}选项�
 *执行过程*
 
 gen_server:start_link在执行时会调用Module:init用来初始化gen_sever。当Module:init执行结束并返回后，gen_server:start_link才会返回。
+
+	Module:init(Args) -> Result
+
+	Args = term()
+	Result = {ok,State} | {ok,State,Timeout} | {ok,State,hibernate} | {stop,Reason} | ignore
+
+当一个gen_server通过gen_server:start/3,4或gen_server:start_link/3,4启动时，在新启动的gen_server进程里会调用该函数执行初始化。
+
+当初始化成功后，该函数应该返回{ok,State},{ok,State,Timeout}或{ok,State,hibernate}，State是gen_server的内部状态。
+
+## 回掉函数
+
+在上面的源代码例子中，`init/1``handle_call/3``handle_info/2``handle_cast/2``terminate/2``code_change/3`都是gen_server的回调函数，这些回掉函数在回调模块`gen_server_test`中指定。
+
+通过gen_server:start_link/4或gen_server:start/4新启动一个gen_server进程时，要指定回调模块，回调模块中export出这些回调函数。
+
+gen_server收到了消息后都是通过这些回调函数实现具体的功能。例如，收到gen_server:call/2发来的消息会调用回调函数Module:handle_call/3处理，收到gen_server:cast/2发来的消息会调用回调函数Module:handle_cast/2处理，收到Pid!Msg方式发来的消息会调用回掉函数Module:handle_info处理。

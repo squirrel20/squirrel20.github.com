@@ -76,19 +76,16 @@ code_change(_OldVsn, State, _Extra) ->
 	start_link(Module, Args, Options) -> Result
 	start_link(ServerName, Module, Args, Options) -> Result
 
+		ServerName = {local, Name}\|{global, GlobalName}\|{via, Module, ViaName}
+		Module = atom()
+		Args = term()
+		Options = [Option]
+		Option = {debug, Dbgs}|{timeout, Time}|{spawn_opt, SOpts}
+		Result = {ok, Pid}|ignore|{error, Error}
+
 *参数解释*
 
-ServerName = {local, Name}|{global, GlobalName}|{via, Module, ViaName}。
 
-Module = atom()
-
-Args = term()
-
-Options = [Option]
-
-Option = {debug, Dbgs}|{timeout, Time}|{spawn_opt, SOpts}
-
-Result = {ok, Pid}|ignore|{error, Error}
 
 如果ServerName={lcoal,Name}，将使用register/2给gen_server注册本地名Name。
 

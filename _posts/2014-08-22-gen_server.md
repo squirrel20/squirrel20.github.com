@@ -142,7 +142,7 @@ call() ->
 handle_call(hi, _From, State) ->
 	State1 = State#state{a = hi},
 	{reply, ok, State1};
-{% endhighlihgt %}
+{% endhighlight %}
 
 ### 异步请求 - Cast
 

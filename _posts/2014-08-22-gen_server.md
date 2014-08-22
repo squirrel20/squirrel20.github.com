@@ -246,3 +246,17 @@ gen_server定义了接口，回调模块需实现这些接口。
 
 ### 从启动gen_server分析
 
+启动gen_server需要调用gen_server:start/3,4或gen_server:start_link/3,4，其执行过程如下：
+
+1. gen_server:start/3,4 | gen_server:start_link/3,4
+2. gen:start/5,6
+3. gen:do_spawn/5,6
+4. proc_lib:start/5 | proc_lib:start_link/5
+6. gen:init_it/6,7
+7. gen:init_it2/7
+8. gen_server:init_it/6
+9. gen_server:loop/6
+
+看到loop了应该就知道这个gen_server是启动起来了。
+
+在分裂进程的时候用到了`proc_lib:start/5`或`proc_lib:start_link/5`，该函数为同步分裂进程，分裂的进程必须在执行`proc_lib:init_ack/1,2`后，该函数才会结束。从这儿也可以看出为什么gen_server:start/3,4或gen_server:start_link/3,4必须等到回调模块的回调函数init/1执行结束后才会返回了。

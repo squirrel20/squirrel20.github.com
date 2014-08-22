@@ -117,7 +117,7 @@ gen_server:start_link在执行时会调用Module:init用来初始化gen_sever。
 
 当初始化成功后，该函数应该返回{ok,State},{ok,State,Timeout}或{ok,State,hibernate}，State是gen_server的内部状态。
 
-## 回掉函数
+## 回调函数
 
 在上面的源代码例子中，`init/1`，`handle_call/3`，`handle_info/2`，`handle_cast/2`，`terminate/2`，`code_change/3`都是gen_server的回调函数，这些回掉函数在回调模块`gen_server_test`中指定。
 

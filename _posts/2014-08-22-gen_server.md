@@ -157,7 +157,7 @@ cast() ->
 handle_cast(async, State) ->
 	State1 = State#state{b = got_async_msg},
 	{noreply, State1};
-{% end highlight %}
+{% endhighlight %}
 
 ### 停止gen_server
 

@@ -179,3 +179,70 @@ handle_cast(stop, State) ->
 terminate(_Reason, State) ->
 	ok.
 {% endhighlight %}
+
+## gen_server源码分析
+
+> 如何查看源码位置，在erlang shell中：
+>
+>	1> code:which(gen_server)
+>	"/usr/lib/erlang/lib/stdlib-1.19.4/ebin/gen_server.beam"
+>
+> 通过code:which可以查看模块的编译文件所在位置，如上所示我的电脑中为
+>
+>	/usr/lib/erlang/lib/stdlib-1.19.4/ebin/gen_server.beam
+>
+> 那么在我的电脑中对应的源代码位置为
+>
+>	/usr/lib/erlang/lib/stdlib-1.19.4/src/gen_server.erl
+
+我觉得分析gen_server的源码可以从两个方向入手：
+
+1. 启动gen_server，即gen_server:start/3,4和gen_server:start_link/3,4
+2. 向gen_server发送请求，即gen_server:call/2、gen_server:cast/2和gen_server:multi_call/3等
+
+另外gen_server定义了behaviour，所以首先可以定位定义behaviour相关源码。
+
+### 定义behaviour
+
+gen_server定义了接口，回调模块需实现这些接口。
+
+{% highlight erlang %}
+-callback init(Args :: term()) ->
+    {ok, State :: term()} | {ok, State :: term(), timeout() | hibernate} |
+    {stop, Reason :: term()} | ignore.
+-callback handle_call(Request :: term(), From :: {pid(), Tag :: term()},
+                      State :: term()) ->
+    {reply, Reply :: term(), NewState :: term()} |
+    {reply, Reply :: term(), NewState :: term(), timeout() | hibernate} |
+    {noreply, NewState :: term()} |
+    {noreply, NewState :: term(), timeout() | hibernate} |
+    {stop, Reason :: term(), Reply :: term(), NewState :: term()} |
+    {stop, Reason :: term(), NewState :: term()}.
+-callback handle_cast(Request :: term(), State :: term()) ->
+    {noreply, NewState :: term()} |
+    {noreply, NewState :: term(), timeout() | hibernate} |
+    {stop, Reason :: term(), NewState :: term()}.
+-callback handle_info(Info :: timeout | term(), State :: term()) ->
+    {noreply, NewState :: term()} |
+    {noreply, NewState :: term(), timeout() | hibernate} |
+    {stop, Reason :: term(), NewState :: term()}.
+-callback terminate(Reason :: (normal | shutdown | {shutdown, term()} |
+                               term()),
+                    State :: term()) ->
+    term().
+-callback code_change(OldVsn :: (term() | {down, term()}), State :: term(),
+                      Extra :: term()) ->
+    {ok, NewState :: term()} | {error, Reason :: term()}.
+{% endhighlight %}
+
+从代码中可以看出gen_server定义的接口分别为：
+
+1. init/1
+2. handle_call/3
+3. handle_cast/2
+4. handle_info/2
+5. terminate/2
+6. code_change/3
+
+### 从启动gen_server分析
+

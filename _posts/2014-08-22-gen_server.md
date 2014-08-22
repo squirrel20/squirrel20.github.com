@@ -119,7 +119,7 @@ gen_server:start_link在执行时会调用Module:init用来初始化gen_sever。
 
 ## 回掉函数
 
-在上面的源代码例子中，`init/1``handle_call/3``handle_info/2``handle_cast/2``terminate/2``code_change/3`都是gen_server的回调函数，这些回掉函数在回调模块`gen_server_test`中指定。
+在上面的源代码例子中，`init/1`，`handle_call/3`，`handle_info/2`，`handle_cast/2`，`terminate/2`，`code_change/3`都是gen_server的回调函数，这些回掉函数在回调模块`gen_server_test`中指定。
 
 通过gen_server:start_link/4或gen_server:start/4新启动一个gen_server进程时，要指定回调模块，回调模块中export出这些回调函数。
 

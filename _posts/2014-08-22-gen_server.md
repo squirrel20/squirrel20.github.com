@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "gen_server"
-description: ""
+title: "gen_server总结"
+description: "用法、源码"
 category: "读书笔记"
 tags: [Erlang]
 ---
@@ -244,7 +244,7 @@ gen_server定义了接口，回调模块需实现这些接口。
 5. terminate/2
 6. code_change/3
 
-### 从启动gen_server分析
+### 启动gen_server分析
 
 启动gen_server需要调用gen_server:start/3,4或gen_server:start_link/3,4，其执行过程如下：
 
@@ -260,3 +260,58 @@ gen_server定义了接口，回调模块需实现这些接口。
 看到loop了应该就知道这个gen_server是启动起来了。
 
 在分裂进程的时候用到了`proc_lib:start/5`或`proc_lib:start_link/5`，该函数为同步分裂进程，分裂的进程必须在执行`proc_lib:init_ack/1,2`后，该函数才会结束。从这儿也可以看出为什么gen_server:start/3,4或gen_server:start_link/3,4必须等到回调模块的回调函数init/1执行结束后才会返回了。
+
+### gen_server:call分析
+
+gen_server:call的执行过程如下：
+
+1. gen_server:call/2,3
+2. gen:call/3,4
+3. gen:do_call/4
+
+其中`gen:call/3,4`处理了如下几种请求：
+
+1. Local or remote by Pid
+2. Local by name
+3. Global by name
+4. Local by name in disguise
+5. Remote by name
+
+其中`gen:do_call/4`的执行过程如下：
+
+1. erlang:monitor
+2. erlang:send
+3. receive
+4. erlang:demonitor
+
+可以看出执行`gen:do_call/4`会先monitor服务进程，然后向服务器执行请求，当请求返回收到后demonitor服务进程。当收到服务进程挂掉的消息后，退出当前进程（即向服务器发起请求的进程）。
+
+*`gen_server:call/3,4`与`Pid ! Msg`对比：*
+
+`gen_server:call/3,4`封装了`Pid ！Msg`，但比`Pid ! Msg`多两次向服务的端的请求，因为要monitor和demonitor服务进程。
+
+### gen_server:cast分析
+
+gen_server:cast是异步请求，服务端不需要返回请求结果。
+
+gen_server:cast分为3种情况
+
+1. 以{global, Name}的形式向服务器发起请求，这种请求会通过global:send发送给服务器。
+2. 以{via, Mod, Name}的形式向服务器发起请求，这种请求会有Mod模块处理，即通过Mod:send发送给服务器。
+3. 其它方式，处理过程如下：
+	1. gen_server:cast/2
+	2. gen_server:do_cast/2
+	3. gen_server:do_send/2
+	4. erlang:send/3
+
+`gen_server:cast/3,4`没有处理服务器返回结果的代码，而且服务器也不会返回结果。
+
+### gen_server处理请求分析
+
+在*启动gen_server分析*中，服务端运行loop函数后就等待客户端发起请求，处理请求的过程如下（其中的一种情况，其它情况参见源代码）：
+
+1. gen_server:loop/6
+2. gen_server:decode_msg/8
+3. gen_server:handle_msg/5
+4. Mod:handle_call/3
+5. gen_server:loop/6

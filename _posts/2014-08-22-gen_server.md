@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "gen_server总结"
-description: "用法、源码"
+description: "示例、源码分析"
 category: "读书笔记"
 tags: [Erlang]
 ---

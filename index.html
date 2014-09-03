@@ -34,7 +34,7 @@ tagline: view article
                 <span>{{ post.date | date:"%Y/%m/%d"}}</span>
                 ，标签：
                 {% for tag in post.tags %}
-                <span>{{ tag }}</span>
+                <span class="tag">{{ tag }}</span>
                 {% endfor %}
             </h5>
         </div>

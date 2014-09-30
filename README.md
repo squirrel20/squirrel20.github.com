@@ -24,7 +24,10 @@
 ## 解题报告
 
 经常练题可以让大脑保持活跃，记录格式如下：
+
 	[平台][题目][题目链接][解题日期]
+
+代码放在我的Gist上面的，[https://gist.github.com/squirrel20/](https://gist.github.com/squirrel20/)
 
 * [leetcode][Single Number][https://oj.leetcode.com/problems/single-number/][2014/09/30]
 

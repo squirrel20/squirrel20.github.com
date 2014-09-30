@@ -17,6 +17,8 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 <script src="https://gist.github.com/squirrel20/e400ed85c3f385aa06a7.js"></script>
 
+<script src="https://gist.github.com/squirrel20/67df67b701c8ed1f7eeb.js"></script>
+
 {% highlight C %}
 
 class Solution {

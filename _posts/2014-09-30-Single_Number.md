@@ -15,24 +15,7 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/e400ed85c3f385aa06a7.js"></script>
-
-<script src="https://gist.github.com/squirrel20/67df67b701c8ed1f7eeb.js"></script>
-
-{% highlight C %}
-
-class Solution {
-public:
-    int singleNumber(int A[], int n) {
-        int tmp = 0;
-        for (int i = 0; i < n; i++) {
-            tmp = tmp ^ A[i];
-        }
-        return tmp;
-    }
-};
-
-{% endhighlight %}
+<script src="https://gist.github.com/squirrel20/31cb8d72ee7e33cc8ee8.js"></script>
 
 ## 分析
 

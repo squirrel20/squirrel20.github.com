@@ -15,7 +15,7 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/6227866.js"></script>
+<script src="https://gist.github.com/squirrel20/e400ed85c3f385aa06a7.js"></script>
 
 {% highlight C %}
 

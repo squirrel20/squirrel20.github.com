@@ -15,7 +15,8 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 ## 源码
 
-{% highlight c++ %}
+{% highlight cplusplus %}
+
 class Solution {
 public:
     int singleNumber(int A[], int n) {
@@ -26,6 +27,7 @@ public:
         return tmp;
     }
 };
+
 {% endhighlight %}
 
 ## 分析

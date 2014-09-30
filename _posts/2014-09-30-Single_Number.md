@@ -15,7 +15,7 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 ## 源码
 
-{% highlight cplusplus %}
+{% highlight C++ %}
 
 class Solution {
 public:

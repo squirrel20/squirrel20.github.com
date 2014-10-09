@@ -23,6 +23,6 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 这里用到了一个关于**异或**运算的性质：
 
-    A ^ 0 = 0
+    A ^ 0 = A
     A ^ A = 0
     A ^ A ^ B = B

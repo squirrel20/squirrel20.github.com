@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "remove_duplicates_from_sorted_array"
+title: "解题报告 > leetcode > Remove Duplicates from Sorted Array"
 description: ""
 category: ""
 tags: []
@@ -8,6 +8,8 @@ tags: []
 {% include JB/setup %}
 
 ## 题目
+
+[题目链接](https://oj.leetcode.com/problems/remove-duplicates-from-sorted-array)
 
 Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
 

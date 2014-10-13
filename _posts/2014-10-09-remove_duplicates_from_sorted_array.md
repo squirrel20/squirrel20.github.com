@@ -2,8 +2,8 @@
 layout: post
 title: "解题报告 > leetcode > Remove Duplicates from Sorted Array"
 description: ""
-category: ""
-tags: []
+category: "解题报告"
+tags: [解题报告, leetcode]
 ---
 {% include JB/setup %}
 

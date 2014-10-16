@@ -5,6 +5,8 @@ description: ""
 category: "解题报告"
 tags: [解题报告, leetcode]
 ---
+{% include JB/setup %}
+
 ## 题目
 
 [题目链接](https://oj.leetcode.com/problems/single-number-ii/)

@@ -25,7 +25,7 @@ Your function should return length = 5, and A is now [1,1,2,2,3].
 
 <script src="https://gist.github.com/squirrel20/d831d6b31f4a4e22208e.js"></script>
 
-## 思路
+## 分析
 
 与[Remove Duplicates from Sorted Array](http://myspes.info/2014/10/09/remove_duplicates_from_sorted_array/)类似。
 

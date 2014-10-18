@@ -19,6 +19,8 @@ You are given a target value to search. If found in the array return its index, 
 
 You may assume no duplicate exists in the array.
 
+<!--more-->
+
 ## 源码
 
 <script src="https://gist.github.com/squirrel20/6552cd0d227f789b94fb.js"></script>

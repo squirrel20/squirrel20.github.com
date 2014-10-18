@@ -33,8 +33,7 @@ Note:
 
 Bonus points if you could solve it both recursively and iteratively.
 
-confused what "{1,#,2,3}" means? > read more on how binary tree is serialized on OJ.
-
+confused what "{1,#,2,3}" means?
 
 OJ's Binary Tree Serialization:
 
@@ -51,6 +50,8 @@ Here's an example:
        5
 
 The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
+
+<!--more-->
 
 ## 源码
 

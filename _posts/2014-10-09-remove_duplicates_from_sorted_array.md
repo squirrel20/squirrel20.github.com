@@ -21,6 +21,8 @@ Given input array A = [1,1,2],
 
 Your function should return length = 2, and A is now [1,2].
 
+<!--more-->
+
 ## 源码
 
 <script src="https://gist.github.com/squirrel20/905e6e2a90ef4e72ac16.js"></script>

@@ -15,6 +15,8 @@ Note:
 
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
+<!--more-->
+
 ## 源码
 
 <script src="https://gist.github.com/squirrel20/31cb8d72ee7e33cc8ee8.js"></script>

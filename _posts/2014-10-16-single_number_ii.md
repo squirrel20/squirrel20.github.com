@@ -17,6 +17,8 @@ Note:
 
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 
+<!--more-->
+
 ## 源码
 
 <script src="https://gist.github.com/squirrel20/e4df0965a4a31b395c4e.js"></script>
@@ -28,8 +30,6 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 代码来自[leetcode讨论区](https://oj.leetcode.com/discuss/857/constant-space-solution)。
 
 下面摘抄原文（原答主写的太好了）：
-
-<!--more-->
 
 ---
 

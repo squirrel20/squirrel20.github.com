@@ -21,6 +21,8 @@ Given sorted array A = [1,1,1,2,2,3],
 
 Your function should return length = 5, and A is now [1,1,2,2,3].
 
+<!--more-->
+
 ## 源码
 
 <script src="https://gist.github.com/squirrel20/d831d6b31f4a4e22208e.js"></script>

@@ -15,6 +15,8 @@ Given an array and a value, remove all instances of that value in place and retu
 
 The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
+<!--more-->
+
 ## 源码
 
 <script src="https://gist.github.com/squirrel20/c05b7d77a94ac34432cd.js"></script>

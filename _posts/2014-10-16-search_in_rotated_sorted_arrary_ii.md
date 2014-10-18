@@ -19,6 +19,8 @@ Would this affect the run-time complexity? How and why?
 
 Write a function to determine if a given target is in the array.
 
+<!--more-->
+
 ## 代码
 
 <script src="https://gist.github.com/squirrel20/d39872d7f73fb57ac23b.js"></script>

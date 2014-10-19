@@ -25,6 +25,8 @@ Did you notice that the reversed integer might overflow? Assume the input is a 3
 
 Throw an exception? Good, but what if throwing an exception is not an option? You would then have to re-design the function (ie, add an extra parameter).
 
+<!--more-->
+
 ## 源码
 
 <script src="https://gist.github.com/squirrel20/530b4549040cd45dbf61.js"></script>

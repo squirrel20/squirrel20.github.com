@@ -23,6 +23,8 @@ You could also try reversing an integer. However, if you have solved the problem
 
 There is a more generic way of solving this problem.
 
+<!--more-->
+
 ## 代码
 
 <script src="https://gist.github.com/squirrel20/c654f45944e8b653954e.js"></script>

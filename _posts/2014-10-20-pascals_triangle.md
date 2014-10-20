@@ -24,6 +24,8 @@ Return
      [1,4,6,4,1]
     ]
 
+<!--more-->
+
 ## 代码
 
 <script src="https://gist.github.com/squirrel20/4308f91239b113c1764f.js"></script>

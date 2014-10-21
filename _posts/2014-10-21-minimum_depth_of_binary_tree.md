@@ -15,6 +15,8 @@ Given a binary tree, find its minimum depth.
 
 The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
+<!--more-->
+
 ## 代码
 
 <script src="https://gist.github.com/squirrel20/4e47286f665663a35217.js"></script>

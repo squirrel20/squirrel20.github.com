@@ -25,6 +25,8 @@ Write the code that will take a string and make this conversion given a number o
 
 convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
+<!--more-->
+
 ## 代码
 
 <script src="https://gist.github.com/squirrel20/fb2e3a4f6305b3e01f6a.js"></script>

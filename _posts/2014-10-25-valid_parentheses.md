@@ -15,6 +15,8 @@ Given a string containing just the characters '(', ')', '{', '}', '[' and ']', d
 
 The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
 
+<!--more-->
+
 ## 代码
 
 <script src="https://gist.github.com/squirrel20/c0e0af2ee87943362107.js"></script>

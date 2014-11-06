@@ -29,7 +29,7 @@ Note: The sequence of integers will be represented as a string.
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 string countAndSay(int n) {
 	if (n == 0) return "";
 

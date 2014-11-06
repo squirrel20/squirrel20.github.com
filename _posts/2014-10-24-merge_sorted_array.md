@@ -19,7 +19,7 @@ You may assume that A has enough space (size that is greater or equal to m + n) 
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 void merge(int A[], int m, int B[], int n)
 {
 	int len = m + n - 1;

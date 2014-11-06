@@ -24,7 +24,7 @@ Try to do this in one pass.
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 ListNode *removeNthFromEnd(ListNode *head, int n)
 {
 	ListNode tmp(0);

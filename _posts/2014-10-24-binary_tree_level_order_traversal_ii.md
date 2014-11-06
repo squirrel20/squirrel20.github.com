@@ -33,7 +33,7 @@ return its bottom-up level order traversal as:
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 vector<vector<int> > levelOrderBottom(TreeNode *root)
 {
 	vector<vector<int> > out;

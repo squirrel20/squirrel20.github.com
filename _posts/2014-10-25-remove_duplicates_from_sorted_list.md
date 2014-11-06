@@ -23,7 +23,7 @@ Given 1->1->2->3->3, return 1->2->3.
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 ListNode *deleteDuplicates(ListNode *head) {
 	ListNode *tmp = head;
 	while (tmp != NULL) {

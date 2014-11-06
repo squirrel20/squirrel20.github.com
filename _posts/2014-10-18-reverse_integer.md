@@ -29,7 +29,7 @@ Throw an exception? Good, but what if throwing an exception is not an option? Yo
 
 ## 源码
 
-{% highlight C++}
+{% highlight C++ %}
 int reverse(int x) {
 	bool flag = x < 0 ? true : false;
 	int out = 0;

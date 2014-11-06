@@ -19,7 +19,7 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 bool isValid(string s)
 {
 	stack<char> sta;

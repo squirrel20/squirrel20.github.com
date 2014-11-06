@@ -35,7 +35,7 @@ return its level order traversal as:
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 vector<vector<int> > levelOrder(TreeNode *root) {
 	vector<vector<int> > level;
 	if (root == NULL) return level;

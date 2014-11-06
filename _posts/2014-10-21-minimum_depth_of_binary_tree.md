@@ -19,7 +19,7 @@ The minimum depth is the number of nodes along the shortest path from the root n
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 int minDepth(TreeNode *root)
 {
 	if (root == NULL) return 0;

@@ -27,7 +27,7 @@ There is a more generic way of solving this problem.
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 bool isPalindrome(int x)
 {
 	// 负数没有回文数？为什么

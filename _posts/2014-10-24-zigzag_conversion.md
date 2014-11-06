@@ -29,7 +29,7 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 string convert(string s, int nRows)
 {
 	if (nRows <= 1 || nRows >= s.size()) return s;

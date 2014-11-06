@@ -19,7 +19,7 @@ Input is guaranteed to be within the range from 1 to 3999.
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 int romanToInt(string s)
 {
 	int out = 0;

@@ -29,7 +29,7 @@ For the purpose of this problem, we define empty string as valid palindrome.
 
 ## 源码
 
-{% highlight C++}
+{% highlight C++ %}
 bool isPalindrome(string s)
 {
 	int low = 0;

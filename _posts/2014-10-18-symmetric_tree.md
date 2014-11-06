@@ -55,7 +55,7 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 
 ## 源码
 
-{% highlight C++}
+{% highlight C++ %}
 bool isSymmetric(TreeNode *root) {
 	if (root == NULL) return true;
 

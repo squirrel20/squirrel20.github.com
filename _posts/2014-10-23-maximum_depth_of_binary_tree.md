@@ -19,7 +19,7 @@ The maximum depth is the number of nodes along the longest path from the root no
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 int maxDepth(TreeNode *root) {
 	if (root == NULL) return 0;
 	stack<TreeNode *> gray;

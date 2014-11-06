@@ -28,7 +28,7 @@ Return
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 vector<vector<int> > generate(int numRows)
 {
 	vector<vector<int> > pt;

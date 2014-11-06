@@ -31,7 +31,7 @@ If no valid conversion could be performed, a zero value is returned. If the corr
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 int atoi(const char *str) {
 	int len = strlen(str);
 	long long out = 0;

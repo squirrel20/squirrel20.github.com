@@ -25,7 +25,7 @@ Could you optimize your algorithm to use only O(k) extra space?
 
 ## 代码
 
-{% highlight C++}
+{% highlight C++ %}
 vector<int> getRow(int rowIndex) {
 	vector<int> row;
 	if (rowIndex < 0) return row;

@@ -41,7 +41,7 @@ vector<int> getRow(int rowIndex) {
 }
 {% endhighlight %}
 
-{% highlight C++}
+{% highlight C++ %}
 vector<int> getRow(int rowIndex) {
 	vector<int> row;
 	if (rowIndex < 0) return row;

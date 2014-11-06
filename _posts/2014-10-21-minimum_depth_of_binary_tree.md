@@ -19,7 +19,30 @@ The minimum depth is the number of nodes along the shortest path from the root n
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/4e47286f665663a35217.js"></script>
+{% highlight C++}
+int minDepth(TreeNode *root)
+{
+	if (root == NULL) return 0;
+
+	queue<TreeNode*> wd;
+	wd.push(root);
+	int dept = 1;
+	while (1) {
+		queue<TreeNode*> lu;
+		while (!wd.empty()) {
+			TreeNode* tmp = wd.front();
+			wd.pop();
+
+			if (tmp->left == NULL && tmp->right == NULL) return dept;
+			if (tmp->left != NULL) lu.push(tmp->left);
+			if (tmp->right != NULL) lu.push(tmp->right);
+		}
+		dept++;
+		wd = lu;
+	}
+	return dept;
+}
+{% endhighlight %}
 
 ## 分析
 

@@ -19,7 +19,32 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/c0e0af2ee87943362107.js"></script>
+{% highlight C++}
+bool isValid(string s)
+{
+	stack<char> sta;
+	for (int i = 0; i < s.size(); i++) {
+		switch (s[i]) {
+			case '(': sta.push('('); break;
+			case '{': sta.push('{'); break;
+			case '[': sta.push('['); break;
+			case ')':
+					  if (!sta.empty() && sta.top() == '(') sta.pop();
+					  else return false;
+					  break;
+			case '}':
+					  if (!sta.empty() && sta.top() == '{') sta.pop();
+					  else return false;
+					  break;
+			case ']':
+					  if (!sta.empty() && sta.top() == '[') sta.pop();
+					  else return false;
+					  break;
+		}
+	}
+	return sta.empty();
+}
+{% endhighlight %}
 
 ## 分析
 

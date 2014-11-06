@@ -27,7 +27,22 @@ There is a more generic way of solving this problem.
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/c654f45944e8b653954e.js"></script>
+{% highlight C++}
+bool isPalindrome(int x)
+{
+	// 负数没有回文数？为什么
+	if (x < 0) return false;
+
+	int tmp = 0;
+	int x2 = x;
+	while (x) {
+		tmp = tmp * 10 + x % 10;
+		x /= 10;
+	}
+
+	return tmp == x2; // 这里也有考虑到溢出的情况，溢出了，自然两者就不等了
+}
+{% endhighlight %}
 
 ## 分析
 

@@ -29,7 +29,31 @@ Note: The sequence of integers will be represented as a string.
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/41c596edc005f08cee87.js"></script>
+{% highlight C++}
+string countAndSay(int n) {
+	if (n == 0) return "";
+
+	string say = "1";
+
+	for (int i = 2; i <= n; i++) {
+		string cursay = "";
+		for (int j = 0; j < say.size(); ) {
+			int tmp = j + 1;
+			while (tmp < say.size() && say[tmp] == say[j])
+				tmp++;
+
+			cursay += (tmp - j + '0');
+			cursay += say[j];
+
+			j = tmp;
+		}
+
+		say = cursay;
+	}
+
+	return say;
+}
+{% endhighlight %}
 
 ## 分析
 

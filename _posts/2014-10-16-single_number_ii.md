@@ -21,7 +21,25 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/e4df0965a4a31b395c4e.js"></script>
+{% highlight C++ %}
+int singleNumber(int A[], int n) {
+	int ones = 0;
+	int twos = 0;
+	int threes = 0;
+	for (int i = 0; i < n; i++) {
+		twos = twos | (ones & A[i]);
+		ones = ones ^ A[i];
+		threes = ones & twos;
+
+		ones = ones & (~threes);
+		twos = twos & (~threes);
+	}
+
+	return ones;
+}
+
+/* 来自 https://oj.leetcode.com/discuss/857/constant-space-solution */
+{% endhighlight %}
 
 ## 分析
 

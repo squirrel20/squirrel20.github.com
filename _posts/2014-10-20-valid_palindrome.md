@@ -29,7 +29,37 @@ For the purpose of this problem, we define empty string as valid palindrome.
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/52ab5252d5af1bdca7a2.js"></script>
+{% highlight C++}
+bool isPalindrome(string s)
+{
+	int low = 0;
+	int high = s.size() - 1;
+
+	while (low < high) {
+		if (s[low] >= 'A' && s[low] <= 'Z')
+			s[low] = s[low] - 'A' + 'a';
+		else if (! ((s[low] >= 'a' && s[low] <= 'z') ||
+					(s[low] >= '0' && s[low] <= '9'))) {
+			low++;
+			continue;
+		}
+		if (s[high] >= 'A' && s[high] <= 'Z')
+			s[high] = s[high] - 'A' + 'a';
+		else if (! ((s[high] >= 'a' && s[high] <= 'z') ||
+					(s[high] >= '0' && s[high] <= '9'))) {
+			high--;
+			continue;
+		}
+
+		if (s[low] != s[high]) return false;
+
+		low++;
+		high--;
+	}
+
+	return true;
+}
+{% endhighlight %}
 
 ## 分析
 

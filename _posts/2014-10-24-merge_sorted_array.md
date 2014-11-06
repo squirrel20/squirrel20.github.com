@@ -19,7 +19,23 @@ You may assume that A has enough space (size that is greater or equal to m + n) 
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/73c9e302472d74b8ca56.js"></script>
+{% highlight C++}
+void merge(int A[], int m, int B[], int n)
+{
+	int len = m + n - 1;
+	int i = m - 1;
+	int j = n - 1;
+	while (i >= 0 && j >= 0) {
+		if (A[i] >= B[j])
+			A[len--] = A[i--];
+		else
+			A[len--] = B[j--];
+	}
+	while (j >= 0) {
+		A[len--] = B[j--];
+	}
+}
+{% endhighlight %}
 
 ## 分析
 

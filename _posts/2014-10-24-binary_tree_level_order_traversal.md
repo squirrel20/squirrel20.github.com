@@ -35,7 +35,31 @@ return its level order traversal as:
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/a1b24fba230aea4cf712.js"></script>
+{% highlight C++}
+vector<vector<int> > levelOrder(TreeNode *root) {
+	vector<vector<int> > level;
+	if (root == NULL) return level;
+	queue<TreeNode *> gray;
+	gray.push(root);
+
+	while (!gray.empty()){
+		vector<int> each_level;
+		int gsize = gray.size();
+		while (gsize--) {
+			TreeNode *tmp = gray.front();
+			gray.pop();
+			each_level.push_back(tmp->val);
+			if (tmp->left != NULL)
+				gray.push(tmp->left);
+			if (tmp->right != NULL)
+				gray.push(tmp->right);
+		}
+		level.push_back(each_level);
+	}
+
+	return level;
+}
+{% endhighlight %}
 
 ## 分析
 

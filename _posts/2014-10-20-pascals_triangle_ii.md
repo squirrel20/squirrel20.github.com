@@ -25,7 +25,42 @@ Could you optimize your algorithm to use only O(k) extra space?
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/3eb733e6e2718457914e.js"></script>
+{% highlight C++}
+vector<int> getRow(int rowIndex) {
+	vector<int> row;
+	if (rowIndex < 0) return row;
+
+	row.push_back(1);
+	double tmp;
+	for (int i = 1; i <= rowIndex; ++i) {
+		tmp = (double)row.back() * (double)(rowIndex - i + 1) / (double)i;
+		row.push_back(tmp);
+	}
+
+	return row;
+}
+{% endhighlight %}
+
+{% highlight C++}
+vector<int> getRow(int rowIndex) {
+	vector<int> row;
+	if (rowIndex < 0) return row;
+
+	row.push_back(1);
+	vector<int> tmp;
+	for (int i = 1; i <= rowIndex; ++i) {
+		tmp.push_back(1);
+		for (int j = 1; j < i; j++)
+			tmp.push_back(row[j] + row[j-1]);
+		tmp.push_back(1);
+
+		row = tmp;
+		tmp.clear();
+	}
+
+	return row;
+}
+{% endhighlight %}
 
 ## 分析
 

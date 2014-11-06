@@ -25,7 +25,22 @@ Your function should return length = 2, and A is now [1,2].
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/905e6e2a90ef4e72ac16.js"></script>
+{% highlight c %}
+int removeDuplicates(int A[], int n) {
+	int index = 0;
+	for (int i = 1; i < n; ++i) {
+		if (A[i] != A[index]) {
+			A[index + 1] = A[i];
+			++index;
+		}
+	}
+
+	if (n == 0)
+		index = -1;
+
+	return index + 1;
+}
+{% endhighlight %}
 
 ## 分析
 

@@ -23,7 +23,54 @@ Write a function to determine if a given target is in the array.
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/d39872d7f73fb57ac23b.js"></script>
+{% highlight C++ %}
+bool search(int A[], int n, int target) {
+	int first = 0;
+	int last = n - 1;
+	int mid;
+
+	while (first <= last) {
+		mid = (first + last) / 2;
+
+		if (A[mid] == target)
+			return true;
+
+		if (A[first] < A[last]) {
+			// sorted arrary
+			if (A[mid] < target)
+				first = mid + 1;
+			else
+				last = mid - 1;
+		} else {
+			if (A[first] == A[last] && A[mid] == A[first]) {
+				int tmp = mid + 1;
+				// 判断是哪一边所有数字相等
+				while (A[tmp] == A[last]) tmp++;
+				if (tmp > last)
+					last = mid - 1;
+				else
+					first = mid + 1;
+			} else if (A[mid] < A[first]) {
+				if (target < A[mid])
+					last = mid - 1;
+				else if (A[mid] < target && target <= A[last])
+					first = mid + 1;
+				else
+					last = mid - 1; // target > A[last]
+			} else {
+				if (target > A[mid])
+					first = mid + 1;
+				else if (A[last] < target && target < A[mid])
+					last = mid - 1;
+				else
+					first = mid + 1;    // target <= A[last]
+			}
+		}
+	}
+
+	return false;
+}
+{% endhighlight %}
 
 ## 分析
 

@@ -23,7 +23,46 @@ You may assume no duplicate exists in the array.
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/6552cd0d227f789b94fb.js"></script>
+{% highlight C++ %}
+int search(int A[], int n, int target) {
+	int first = 0;
+	int last = n - 1;
+	int mid;
+
+	while (first <= last) {
+		mid = (first + last) / 2;
+
+		if (A[mid] == target)
+			return mid;
+
+		if (A[first] <= A[last]) {
+			// sorted arrary
+			if (A[mid] < target)
+				first = mid + 1;
+			else
+				last = mid - 1;
+		} else {
+			if (A[mid] < A[first]) {
+				if (target < A[mid])
+					last = mid - 1;
+				else if (A[mid] < target && target <= A[last])
+					first = mid + 1;
+				else
+					last = mid - 1; // target > A[last]
+			} else {
+				if (target > A[mid])
+					first = mid + 1;
+				else if (A[last] < target && target < A[mid])
+					last = mid - 1;
+				else
+					first = mid + 1;    // target <= A[last]
+			}
+		}
+	}
+
+	return -1;
+}
+{% endhighlight %}
 
 ## 分析
 

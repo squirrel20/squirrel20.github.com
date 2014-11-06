@@ -33,7 +33,38 @@ return its bottom-up level order traversal as:
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/619d0a6d499898c61204.js"></script>
+{% highlight C++}
+vector<vector<int> > levelOrderBottom(TreeNode *root)
+{
+	vector<vector<int> > out;
+	stack<vector<int> > level;
+	if (root == NULL) return out;
+	queue<TreeNode *> gray;
+	gray.push(root);
+
+	while (!gray.empty()){
+		vector<int> each_level;
+		int gsize = gray.size();
+		while (gsize--) {
+			TreeNode *tmp = gray.front();
+			gray.pop();
+			each_level.push_back(tmp->val);
+			if (tmp->left != NULL)
+				gray.push(tmp->left);
+			if (tmp->right != NULL)
+				gray.push(tmp->right);
+		}
+		level.push(each_level);
+	}
+
+	while (!level.empty()) {
+		vector<int> tmp = level.top();
+		level.pop();
+		out.push_back(tmp);
+	}
+	return out;
+}
+{% endhighlight %}
 
 ## 分析
 

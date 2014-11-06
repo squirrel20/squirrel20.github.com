@@ -19,7 +19,37 @@ The maximum depth is the number of nodes along the longest path from the root no
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/e9d5522d650aaf1fb92a.js"></script>
+{% highlight C++}
+int maxDepth(TreeNode *root) {
+	if (root == NULL) return 0;
+	stack<TreeNode *> gray;
+	stack<int> depth;
+	int out = 0;
+
+	gray.push(root);
+	depth.push(1);
+	while (!gray.empty()) {
+		TreeNode *tmp = gray.top();
+		int num = depth.top();
+		gray.pop();
+		depth.pop();
+		if (tmp->left == NULL && tmp->right == NULL) {
+			out = num > out ? num : out;
+		}
+		else {
+			if (tmp->left != NULL) {
+				gray.push(tmp->left);
+				depth.push(num + 1);
+			}
+			if (tmp->right != NULL) {
+				gray.push(tmp->right);
+				depth.push(num + 1);
+			}
+		}
+	}
+	return out;
+}
+{% endhighlight %}
 
 ## 分析
 

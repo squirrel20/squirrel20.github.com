@@ -31,7 +31,33 @@ If no valid conversion could be performed, a zero value is returned. If the corr
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/a8b3923e1653f989b84e.js"></script>
+{% highlight C++}
+int atoi(const char *str) {
+	int len = strlen(str);
+	long long out = 0;
+	bool flag = true;
+	char pos = '+';
+	for (unsigned int i = 0; i < len; i++) {
+		if (str[i] == ' ' && flag)
+			continue;
+
+		if ((str[i] == '+' || str[i] == '-') && flag) {
+			flag = false;
+			pos = str[i];
+		}
+		else if (str[i] >= '0' && str[i] <= '9') {
+			flag = false;
+			out = (str[i] - '0') + out * 10;
+		}
+		else
+			break;
+	}
+	if (pos == '-') out = -out;
+	if (out > INT_MAX) out = INT_MAX;
+	if (out < INT_MIN) out = INT_MIN;
+	return out;
+}
+{% endhighlight %}
 
 ## 分析
 

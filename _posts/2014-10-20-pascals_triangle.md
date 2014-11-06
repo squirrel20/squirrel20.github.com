@@ -28,7 +28,29 @@ Return
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/4308f91239b113c1764f.js"></script>
+{% highlight C++}
+vector<vector<int> > generate(int numRows)
+{
+	vector<vector<int> > pt;
+	if (numRows < 1) return pt;
+
+	vector<int> one;
+	one.push_back(1);
+	pt.push_back(one);
+
+	for (int i = 1; i < numRows; ++i) {
+		vector<int> curLine;
+		curLine.push_back(1);
+		for (int j = 1; j < i ; ++j) {
+			curLine.push_back(pt[i - 1][j] + pt[i - 1][j - 1]);
+		}
+		curLine.push_back(1);
+		pt.push_back(curLine);
+	}
+
+	return pt;
+}
+{% endhighlight %}
 
 ## 分析
 

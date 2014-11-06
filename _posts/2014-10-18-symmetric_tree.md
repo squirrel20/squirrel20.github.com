@@ -55,7 +55,34 @@ The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/776684ef9545ecdbee2d.js"></script>
+{% highlight C++}
+bool isSymmetric(TreeNode *root) {
+	if (root == NULL) return true;
+
+	stack<TreeNode *> act;
+	act.push(root->left);
+	act.push(root->right);
+
+	while(!act.empty()) {
+		TreeNode *right = act.top();
+		act.pop();
+		TreeNode *left = act.top();
+		act.pop();
+
+		if (left == NULL && right == NULL) continue;
+		else if (left == NULL || right == NULL) return false;
+		else if (left->val != right->val) return false;
+		else {
+			act.push(left->left);
+			act.push(right->right);
+			act.push(left->right);
+			act.push(right->left);
+		}
+	}
+
+	return true;
+}
+{% endhighlight %}
 
 ## 分析
 

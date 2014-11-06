@@ -23,7 +23,19 @@ Given 1->1->2->3->3, return 1->2->3.
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/a88d700d8f4c2a8c7734.js"></script>
+{% highlight C++}
+ListNode *deleteDuplicates(ListNode *head) {
+	ListNode *tmp = head;
+	while (tmp != NULL) {
+		if (tmp->next != NULL && tmp->val == tmp->next->val)
+			tmp->next = tmp->next->next;
+		else
+			tmp = tmp->next;
+	}
+
+	return head;
+}
+{% endhighlight %}
 
 ## 分析
 

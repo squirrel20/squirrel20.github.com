@@ -29,7 +29,26 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/fb2e3a4f6305b3e01f6a.js"></script>
+{% highlight C++}
+string convert(string s, int nRows)
+{
+	if (nRows <= 1 || nRows >= s.size()) return s;
+	int t = nRows * 2 - 2;
+	int t2 = t;
+	string out = "";
+
+	for (int i = 0; i < nRows; ++i) {
+		for (int j = i; j < s.size(); ) {
+			out += s[j];
+			if (j + t2 < s.size() && t2 < t && t2 > 0)
+				out += s[j + t2];
+			j += t;
+		}
+		t2 -= 2;
+	}
+	return out;
+}
+{% endhighlight %}
 
 ## 分析
 

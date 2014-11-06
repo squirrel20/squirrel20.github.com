@@ -19,7 +19,27 @@ For this problem, a height-balanced binary tree is defined as a binary tree in w
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/e530f5c99b7a6375cf38.js"></script>
+{% highlight C++}
+int getDepth(TreeNode *root, bool& isContinue)
+{
+	if (!isContinue) return 0;
+	if (root == NULL) return 0;
+
+	int leftDepth = getDepth(root->left, isContinue);
+	int rightDepth = getDepth(root->right, isContinue);
+
+	if (!isContinue) return 0;
+	isContinue = abs(leftDepth - rightDepth) <= 1;
+	return max(leftDepth, rightDepth) + 1;
+}
+
+bool isBalanced(TreeNode *root)
+{
+	bool isContinue = true;
+	getDepth(root, isContinue);
+	return isContinue;
+}
+{% endhighlight %}
 
 ## 分析
 

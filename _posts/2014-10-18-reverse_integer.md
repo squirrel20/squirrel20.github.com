@@ -29,7 +29,21 @@ Throw an exception? Good, but what if throwing an exception is not an option? Yo
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/530b4549040cd45dbf61.js"></script>
+{% highlight C++}
+int reverse(int x) {
+	bool flag = x < 0 ? true : false;
+	int out = 0;
+	x = x < 0 ? -x : x;
+	while (x) {
+		out = out * 10 + x % 10;
+		if (out < 0) return 0;
+		x /= 10;
+	}
+
+	if (flag) out = -out;
+	return out;
+}
+{% endhighlight %}
 
 ## 分析
 

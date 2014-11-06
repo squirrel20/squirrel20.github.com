@@ -24,7 +24,22 @@ Try to do this in one pass.
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/0bdb3ee159666f19d115.js"></script>
+{% highlight C++}
+ListNode *removeNthFromEnd(ListNode *head, int n)
+{
+	ListNode tmp(0);
+	tmp.next = head;
+	ListNode *first = &tmp;
+	ListNode *second = &tmp;
+	while (n--) first = first->next;
+	while (first != NULL && first->next != NULL) {
+		first = first->next;
+		second = second->next;
+	}
+	second->next = second->next->next;
+	return tmp.next;
+}
+{% endhighlight %}
 
 ## 分析
 

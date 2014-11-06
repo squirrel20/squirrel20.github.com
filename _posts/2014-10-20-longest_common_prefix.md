@@ -17,7 +17,27 @@ Write a function to find the longest common prefix string amongst an array of st
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/9d8223c3231793fdd126.js"></script>
+{% highlight C++}
+string longestCommonPrefix(vector<string> &strs)
+{
+	if (strs.size() == 0) return "";
+
+	string ret = "";
+
+	for (size_t i = 0; i < strs[0].size(); i++)
+	{
+		for (size_t j = 1; j < strs.size(); j++)
+		{
+			if (i > strs[j].size() || strs[0][i] != strs[j][i])
+				return ret;
+		}
+
+		ret += strs[0][i];
+	}
+
+	return ret;
+}
+{% endhighlight %}
 
 ## 分析
 

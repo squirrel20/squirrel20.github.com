@@ -19,7 +19,31 @@ Input is guaranteed to be within the range from 1 to 3999.
 
 ## 代码
 
-<script src="https://gist.github.com/squirrel20/a7d71b3226933759bbf3.js"></script>
+{% highlight C++}
+int romanToInt(string s)
+{
+	int out = 0;
+	map<char, int> stand = { 
+		{ 'I', 1 }, 
+		{ 'V', 5 }, 
+		{ 'X', 10 }, 
+		{ 'L', 50 },
+		{ 'C', 100 },
+		{ 'D', 500 },
+		{ 'M', 1000 } };
+
+	for (int i = 0; i < s.size(); i++) {
+		if ((i + 1) < s.size() && stand[s[i]] < stand[s[i + 1]]) {
+			out += stand[s[i + 1]] - stand[s[i]];
+			i++;
+		}
+		else
+			out += stand[s[i]];
+	}
+
+	return out;
+}
+{% endhighlight %}
 
 ## 分析
 

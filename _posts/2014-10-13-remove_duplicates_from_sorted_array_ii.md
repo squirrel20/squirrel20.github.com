@@ -25,7 +25,22 @@ Your function should return length = 5, and A is now [1,1,2,2,3].
 
 ## 源码
 
-<script src="https://gist.github.com/squirrel20/d831d6b31f4a4e22208e.js"></script>
+{% highlight C++ %}
+int removeDuplicates(int A[], int n) {
+	if (n < 3)
+		return n;
+
+	int index = 1;
+	for (int i = 2; i < n; ++i) {
+		if (A[i] != A[index - 1]) {
+			A[index + 1] = A[i];
+			++index;
+		}
+	}
+
+	return index + 1;
+}
+{% endhighlight %}
 
 ## 分析
 
